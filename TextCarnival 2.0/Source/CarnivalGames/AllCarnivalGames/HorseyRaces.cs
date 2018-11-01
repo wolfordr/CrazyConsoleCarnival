@@ -15,6 +15,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
         public override void play()
         {
+            float odds1 = 0;
+            float odds2 = 0;
+            float odds3 = 0;
+
+            int race = 1;
+
+            int h1 = 0;
+            int h2 = 0;
+            int h3 = 0;
+
             int Money = 1000;
             while (Money > 0)
             {
@@ -22,6 +32,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 showTitle("Horsey Races");
                 writeLine("$" + Money);
                 writeLine("1 [Horse 1], 2 [Horse 2], 3 [Horse 3], Q [Quit]");
+                writeLine("Odds of winning:\nHorse1: " + odds1 + " Horse2: " + odds2 + " Horse3: " + odds3);
+
                 write("Select a horse to bet on: ");
 
                 string choice = getOption("1", "2", "3", "q");
@@ -43,11 +55,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 
 
                 string RaceTrack1 = "-_-_-_-_-$-_";
-                string RaceTrack01 = "-_-_-_-_-$-_";
+                string RaceTrack = "-_-_-_-_-$-_";
                 string RaceTrack2 = "-_-_-_-_-$-_";
-                string RaceTrack02 = "-_-_-_-_-$-_";
                 string RaceTrack3 = "-_-_-_-_-$-_";
-                string RaceTrack03 = "-_-_-_-_-$-_";
 
                 Random Moves = new Random();
 
@@ -62,20 +72,20 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     {
                         if (i == 1)
                         {
-                            RaceTrack1 = RaceTrack01;
+                            RaceTrack1 = RaceTrack;
                             H1 += Moves.Next(0, 3) + 1;
                             RaceTrack1 = RaceTrack1.Insert(H1, "1");
 
                         }
                         if (i == 2)
                         {
-                            RaceTrack2 = RaceTrack02;
+                            RaceTrack2 = RaceTrack;
                             H2 += Moves.Next(0, 3) + 1;
                             RaceTrack2 = RaceTrack2.Insert(H2, "2");
                         }
                         if (i == 2)
                         {
-                            RaceTrack3 = RaceTrack03;
+                            RaceTrack3 = RaceTrack;
                             H3 += Moves.Next(0, 3) + 1;
                             RaceTrack3 = RaceTrack3.Insert(H3, "3");
                         }
@@ -89,22 +99,94 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 string winner = "";
 
                 if (Max == H1)
+                {
                     winner = "1";
+                    h1++;
+                    if (H2 == Math.Max(H2,H3))
+                    {
+                        h2 += 2;
+                        h3 += 3;
+                    }
+                    else
+                    {
+                        h2 += 3;
+                        h3 += 2;
+                    }
+                }
                 if (Max == H2)
+                {
                     winner = "2";
+                    h2++;
+                    if (H1 == Math.Max(H1, H3))
+                    {
+                        h1 += 2;
+                        h3 += 3;
+                    }
+                    else
+                    {
+                        h1 += 3;
+                        h3 += 2;
+                    }
+                }
                 if (Max == H3)
+                {
                     winner = "3";
+                    h3++;
+                    if (H2 == Math.Max(H2, H1))
+                    {
+                        h2 += 2;
+                        h1 += 3;
+                    }
+                    else
+                    {
+                        h2 += 3;
+                        h1 += 2;
+                    }
+                }
+                odds1 = (100 * ((float)race / h1))/1.15f;
+                odds2 = (100 * ((float)race / h2))/1.15f;
+                odds3 = (100 * ((float)race / h3))/1.15f;
+
+                writeLine("Odds of winning:\nHorse1: " + odds1 + " Horse2: " + odds2 + " Horse3: " + odds3);
+
 
                 if (choice == winner)
                 {
                     write("Y O U  W I N !");
-                    Money += Bet * 2;
+                    if (choice == "1")
+                    {
+                        if (odds1 == Math.Min(odds1, Math.Min(odds2, odds3)))
+                            Money += Bet * 4;
+                        if (odds1 == Math.Min(odds1, Math.Max(odds2, odds3)))
+                            Money += Bet * 3;
+                        if (odds1 == Math.Max(odds1, Math.Max(odds2, odds3)))
+                            Money += Bet * 2;
+                    }
+                    if (choice == "2")
+                    {
+                        if (odds2 == Math.Min(odds2, Math.Min(odds1, odds3)))
+                            Money += Bet * 4;
+                        if (odds2 == Math.Min(odds2, Math.Max(odds1, odds3)))
+                            Money += Bet * 3;
+                        if (odds2 == Math.Max(odds2, Math.Max(odds1, odds3)))
+                            Money += Bet * 2;
+                    }
+                    if (choice == "3")
+                    {
+                        if (odds3 == Math.Min(odds3, Math.Min(odds2, odds1)))
+                            Money += Bet * 4;
+                        if (odds3 == Math.Min(odds3, Math.Max(odds2, odds1)))
+                            Money += Bet * 3;
+                        if (odds3 == Math.Max(odds3, Math.Max(odds2, odds1)))
+                            Money += Bet * 2;
+                    }
                 }
                 else
                     write("Y O U  L O S E !");
 
                 wait(3);
                 clear();
+                race++;
             }
         }
     }
