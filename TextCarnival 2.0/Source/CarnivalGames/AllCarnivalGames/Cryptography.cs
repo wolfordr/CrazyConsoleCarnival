@@ -21,11 +21,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeOut("TH15 W1LL B3 @ TR1(KY G@M3 F0R 5UR3!");
             wait(5);
             writeOut("Ok, not that tricky. Your goal is to guess the number\nthat the letters in the word have shifted.");
-            wait(4);
-            writeOut("But that's not your main goal, you have to type out the word.\nFinding the number of times the letters shift will just lead\nyou to the answer.");
-            wait(4);
-            writeLine("|c0\nEXAMPLE: 'Hello' shifted 1 letter would then give you 'Ifmmp' or 'Gdkkn'\ndepending on which way the letters shift.\nTo be even more clear, 'Hello' should've been\nthe word typed as the answer.\n|f0");
             wait(5);
+            writeOut("But that's not your main goal, you have to type out the word.\nFinding the number of times the letters shift will just lead\nyou to the answer.");
+            wait(6);
+            writeLine("|c0\nEXAMPLE: 'Hello' shifted 1 letter would then give you 'Ifmmp' or 'Gdkkn'\ndepending on which way the letters shift.\nTo be even more clear, 'Hello' should've been\nthe word typed as the answer.\n|f0");
+            wait(6);
 
             string Alph = "abcdefghijklmnopqrstuvwxyz";
             string BigAlph = Alph.ToUpper();
