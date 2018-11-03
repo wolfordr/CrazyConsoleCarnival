@@ -30,9 +30,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 clear();
                 showTitle("Horsey Races");
-                writeLine("$" + Money);
-                writeLine("1 [Horse 1], 2 [Horse 2], 3 [Horse 3], Q [Quit]");
-                writeLine("Odds of winning:\nHorse1: " + odds1 + " Horse2: " + odds2 + " Horse3: " + odds3);
+                writeLine("|a0$" + Money);
+                writeLine("|c01 [Horse 1], 2 [Horse 2], 3 [Horse 3], Q [Quit]");
+                writeLine("|e0Odds of winning:\n|20Horse1: " + odds1 + "|40 Horse2: " + odds2 + "|b0 Horse3: " + odds3);
 
                 write("Select a horse to bet on: ");
 
@@ -147,12 +147,12 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 odds2 = (100 * ((float)race / h2))/1.15f;
                 odds3 = (100 * ((float)race / h3))/1.15f;
 
-                writeLine("Odds of winning:\nHorse1: " + odds1 + " Horse2: " + odds2 + " Horse3: " + odds3);
+                writeLine("|e0Odds of winning:\n|20Horse1: " + odds1 + "|40 Horse2: " + odds2 + "|b0 Horse3: " + odds3);
 
 
                 if (choice == winner)
                 {
-                    write("Y O U  W I N !");
+                    writeLine("|20Y O U  W I N !");
                     if (choice == "1")
                     {
                         if (odds1 == Math.Min(odds1, Math.Min(odds2, odds3)))
@@ -182,7 +182,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     }
                 }
                 else
-                    write("Y O U  L O S E !");
+                    write("|40Y O U  L O S E !");
 
                 wait(3);
                 clear();

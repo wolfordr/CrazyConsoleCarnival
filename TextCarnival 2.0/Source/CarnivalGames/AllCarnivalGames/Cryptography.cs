@@ -24,7 +24,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(4);
             writeOut("But that's not your main goal, you have to type out the word.\nFinding the number of times the letters shift will just lead\nyou to the answer.");
             wait(4);
-            writeOut("\nEXAMPLE: 'Hello' shifted 1 letter would then give you 'Ifmmp' or 'Gdkkn'\ndepending on which way the letters shift.\nTo be even more clear, 'Hello' should've been\nthe word typed as the answer.\n");
+            writeLine("|c0\nEXAMPLE: 'Hello' shifted 1 letter would then give you 'Ifmmp' or 'Gdkkn'\ndepending on which way the letters shift.\nTo be even more clear, 'Hello' should've been\nthe word typed as the answer.\n|f0");
             wait(5);
 
             string Alph = "abcdefghijklmnopqrstuvwxyz";
@@ -36,24 +36,44 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 "example", "Easton",
                 "poop", "Clippy",
                 "Tanczos"};
+            string[] phrases = new string[] {"The quick brown fox jumps over the lazy dog.", "Bloomsburg Coding Competition",
+                "Computer Science", "Advanced Data Structures", "This game is by far the best in the class", "You suck at this",
+                "Andrew Spaziani is a God"};
 
             int round = 1;
             while (true)
             {
                 clear();
-                writeOut("round " + round);
+                writeLine("|c0round " + round);
                 Random rand = new Random();
                 Random Value = new Random();
-                int Val = Value.Next(0, 27);
-                string Original = Words[rand.Next(0, 11)];
+                int Val = Value.Next();
+                string Original = "";
                 string Answer = "";
 
-                foreach(char c in Original)
+                if (round < 10)
                 {
-                    if (Alph.Contains(c.ToString()))
-                        Answer += Alph.Substring((Alph.IndexOf(c) + Val) % 26, 1);
-                    else if (BigAlph.Contains(c.ToString()))
-                        Answer += BigAlph.Substring((BigAlph.IndexOf(c) + Val) % 26, 1);
+                    Original = Words[rand.Next() % Words.Length];
+                    foreach (char c in Original)
+                    {
+                        if (Alph.Contains(c.ToString()))
+                            Answer += Alph.Substring((Alph.IndexOf(c) + Val) % 26, 1);
+                        else if (BigAlph.Contains(c.ToString()))
+                            Answer += BigAlph.Substring((BigAlph.IndexOf(c) + Val) % 26, 1);
+                        else Answer += c.ToString();
+                    }
+                }
+                else
+                {
+                    Original = phrases[rand.Next() % phrases.Length];
+                    foreach (char c in Original)
+                    {
+                        if (Alph.Contains(c.ToString()))
+                            Answer += Alph.Substring((Alph.IndexOf(c) + Val) % 26, 1);
+                        else if (BigAlph.Contains(c.ToString()))
+                            Answer += BigAlph.Substring((BigAlph.IndexOf(c) + Val) % 26, 1);
+                        else Answer += c.ToString();
+                    }
                 }
 
                 writeOut("\n\nYour encrypted word is: " + Answer);
@@ -65,14 +85,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     wait(5);
                     writeOut("Just kidding, Sabeen has decent code, but you still suck like absolute trash");
                     wait(3);
-                    writeOut("The correct word was: " + Original);
+                    writeLine("|c0The correct word was: |a0" + Original);
                     wait(5);
                     clear();
                     break;
                 }
                 else
                 {
-                    writeOut("Nice job!");
+                    writeLine("|a0Nice job!");
                     wait(2);
                 }
                 round++;
