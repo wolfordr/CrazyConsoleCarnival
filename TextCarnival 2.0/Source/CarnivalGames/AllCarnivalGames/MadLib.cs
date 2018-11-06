@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 {
-    class MadLibs : CarnivalGame
+    class MadLib : CarnivalGame
     {
-        public MadLibs() : base()
+        public MadLib() : base()
         {
 
         }
 
         public override string getName()
         {
-            return "MadLibs";
+            return "A Halloween MadLib";
         }
 
         public override void play()
@@ -23,15 +23,15 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             //Shows the green title text
             showTitle("WELCOME TO THE HALLOWEEN MADLIB!");
 
-            writeLine("|40This is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
-            writeLine("|40Once you're done, you can read your final story!");
-            writeLine("|40Are you ready to begin?");
+            writeLine("|9bThis is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
+            writeLine("Once you're done, you can read your final story!");
+            writeLine("Are you ready to begin?");
             bool getsIt = getYesNo();
 
             if (getsIt)
-                writeOut("|40Great.");
+                writeOut("Great.");
             else
-                writeLine("|40You should try it.");
+                writeLine("You should try it.");
 
             clear();
 
@@ -83,12 +83,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeOut("Enter another name: ");
             FirstName2 = Console.ReadLine();
 
-            writeOut("Enter another adjective: ");
-            Adjective4 = Console.ReadLine();
-
-            writeOut("Enter another noun: ");
-            Noun2 = Console.ReadLine();
-
             writeOut("Enter a verb ending in -ing: ");
             VerbIng2 = Console.ReadLine();
 
@@ -96,12 +90,12 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             PluralNoun = Console.ReadLine();
 
             writeOut(". . .");
-            wait(1.5);
+            wait(3);
 
             writeOut("Finally, enter your last verb ending in -ing: ");
             VerbIng3 = Console.ReadLine();
 
-            writeOut(". . . Creating your Halloween MadLib . . .");
+            writeOut(". . . Creating your Halloween Madlib . . .");
             wait(3.0);
 
             writeOut("They say my school is haunted; my " + Adjective1 + " friend " + FirstName1 + " says they saw a " + Adjective2
