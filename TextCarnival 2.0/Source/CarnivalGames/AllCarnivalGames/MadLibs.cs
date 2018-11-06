@@ -21,18 +21,18 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             //Shows the green title text
-            showTitle("WELCOME TO THE HALLOWEEN MADLIB!");
+            showTitle("|c0WELCOME TO THE HALLOWEEN MADLIB!");
 
-            writeLine("|40This is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
-            writeLine("|40Once you're done, you can read your final story!");
-            writeLine("|40Are you ready to begin?");
+            writeLine("|c4This is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
+            writeLine("|c4Once you're done, you can read your final story!");
+            writeLine("|c4Are you ready to begin?");
             bool getsIt = getYesNo();
 
             if (getsIt)
-                writeOut("|40Great.");
+                writeLine("|c0Great.");
             else
-                writeLine("|40You should try it.");
-
+                writeLine("|c0Try it anyways.");
+            wait(1.5);
             clear();
 
             showSeperator(30, "|e0", "|d0");
@@ -104,19 +104,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeOut(". . . Creating your Halloween MadLib . . .");
             wait(3.0);
 
+            showSeperator(30, "|e0", "|d0");
+
+
             writeOut("They say my school is haunted; my " + Adjective1 + " friend " + FirstName1 + " says they saw a " + Adjective2
             + " " + Noun1 + " floating at the end of the hall near the cafeteria. Some say if you "
             + Verb + " down the hallway at night, you'll hear a " + Animal + " " + VerbIng1 + " " + Adverb + ". My "
             + Adjective3 + " friend " + FirstName2 + " saw a " + Adjective4 + " " + Noun2 + " " + VerbIng2 +
             " under one of the tables once. I hope I never see any " + PluralNoun + " " + VerbIng3 + " ; eating lunch there is scary enough!");
-
-
-
-
-
-
-
-
         }
 
     }
