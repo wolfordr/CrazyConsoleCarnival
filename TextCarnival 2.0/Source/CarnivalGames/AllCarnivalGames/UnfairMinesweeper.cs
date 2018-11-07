@@ -75,6 +75,20 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("Welp you hit a mine, I am really not surprised! :D");
                     wait(2);
                 }
+
+                if (/*wincheck(showfield, minefield)*/ true)
+                {
+                    writeOut("You must have gotten a really easy board or you are a god at logic.");
+                    wait(1);
+                    writeOut("Either that or you got lucky");
+                    wait(1);
+                    writeOut("Nevertheless you won, I guess you deserve a prize!");
+                    wait(1);
+                    writeOut("Your prize is information, the creator of this game is Ryan Wolford!");
+                    wait(1);
+                    writeOut("So um.... goodbye :D");
+                    break;
+                }
             }
 
         }
@@ -279,10 +293,20 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
         }
 
-        /*private bool wincheck(bool[,] showF, bool[,] mineF)
+        private bool wincheck(bool[,] showF, bool[,] mineF)
         {
-            
-        } */
+            for (int i = 0; i < 10;i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    if (!(showF[i,k]) && !(mineF[i,k]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        } 
         
 
     }
