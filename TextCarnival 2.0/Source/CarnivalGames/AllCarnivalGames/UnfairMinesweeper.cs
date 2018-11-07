@@ -21,12 +21,21 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             //Shows the green title text
-            showTitle("WELCOME TO A BAD GAME!");
+            showTitle("WELCOME TO UNFAIR MINESWEEPER");
 
-            writeLine("To play simply input a coordinate to reveal, The cords go 0-9 and originate from the top left corner");
-            writeLine("I don't know why you are reading this, There is a time limit");
-            writeLine("I don't know why you would want to leave but if you do just type in |60Q");
-
+            writeOut("To play simply input a coordinate to reveal, The cords go 0-9 and originate from the top left corner");
+            wait(2);
+            writeOut("I don't know why you would want to leave but if you do just type in Q");
+            wait(2);
+            writeOut("BTW you can't flag mines, If that sounds unfair rearead the name of this game");
+            wait(2);
+            writeOut("correctly reveal all safe spaces to win!");
+            wait(1);
+            writeOut("Board loading...");
+            wait(1);
+            writeOut("done!");
+            wait(1);
+        
             Random rng = new Random();
             bool[,] showfield = new bool[10, 10];
             bool[,] minefield = new bool[10, 10];
@@ -58,13 +67,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 writeLine("input a cordinate with the y first then the x with a comma bewtween exp. 7,8\n");
                 input = Console.ReadLine();
+                if (input.Equals("Q")) { break; }
                 if (input.Length > 3 || input.Length <= 2)
                 {
                     writeLine("INVALID INPUT! Try again :D");
                     break;
                 }
 
-                if (input.Equals("Q")) { break; }
+                
                 playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
                 showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
                 boardPrint(playfield, showfield);
@@ -72,21 +82,24 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))])
                 {
                     flag = false;
-                    writeLine("Welp you hit a mine, I am really not surprised! :D");
+                    writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
                     wait(2);
                 }
 
-                if (/*wincheck(showfield, minefield)*/ true)
+                if (wincheck(showfield, minefield))
                 {
                     writeOut("You must have gotten a really easy board or you are a god at logic.");
-                    wait(1);
+                    wait(2);
                     writeOut("Either that or you got lucky");
-                    wait(1);
+                    wait(2);
                     writeOut("Nevertheless you won, I guess you deserve a prize!");
-                    wait(1);
+                    wait(2);
                     writeOut("Your prize is information, the creator of this game is Ryan Wolford!");
-                    wait(1);
+                    wait(2);
+                    writeOut("Also you beat the game with " + rng.Next(1, 10) + " seconds left!");
+                    wait(2);
                     writeOut("So um.... goodbye :D");
+                    wait(2);
                     break;
                 }
             }
@@ -270,7 +283,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         {
             
             String printer = "";
-            writeLine("------------------------------\n");
+          
             for (int k = 0; k < 10; k++)
             {
 
@@ -279,17 +292,17 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     if (showF[k, i])
                     {
-                        printer += playF[k, i] + "]";
+                        printer += playF[k, i] + "] ";
                     }
                     else
                     {
-                        printer += "?" + "]";
+                        printer += "?" + "] ";
                     }
                     if (i != 9)
                         printer += "[";
                 }
                 writeLine(printer + "\n");
-                writeLine("------------------------------\n");
+               
             }
         }
 
