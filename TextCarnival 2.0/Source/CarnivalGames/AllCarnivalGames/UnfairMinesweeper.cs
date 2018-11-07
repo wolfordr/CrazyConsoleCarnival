@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 {
-    class MineSweeper : CarnivalGame
+    class UnfairMineSweeper : CarnivalGame
     {
-        public MineSweeper() : base()
+        public UnfairMineSweeper() : base()
         {
             
         }
@@ -17,7 +17,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         {
             return "Unfair MineSweeper";
         }
-        
+
         public override void play()
         {
             //Shows the green title text
@@ -28,11 +28,56 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeLine("I don't know why you would want to leave but if you do just type in |60Q");
 
             Random rng = new Random();
-            bool[,] mineGrid = new bool[10, 10];
-            String[,] playfield = new string[10, 10];
-            int rngBS;
+            bool[,] showfield = new bool[10, 10];
+            bool[,] minefield = new bool[10, 10];
+            String[,] playfield = new String[10, 10];
+            bool flag = true;
+            String input;
 
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    if (rng.Next(0, 100) <= 30)
+                    {
+                        minefield[i, k] = true;
+                        playfield[i, k] = "M";
+                    }
+                    else
+                    {
+                        minefield[i, k] = false;
+                        playfield[i, k] = "j";
+                    }
+                    showfield[i, k] = false;
+                }
+            }
 
+            boardPrint(playfield, showfield);
+
+            while (flag)
+            {
+                writeLine("input a cordinate with the y first then the x with a comma bewtween exp. 7,8\n");
+                input = Console.ReadLine();
+                if (input.Length > 3 || input.Length <= 2)
+                {
+                    writeLine("INVALID INPUT! Try again :D");
+                    break;
+                }
+
+                if (input.Equals("Q")) { break; }
+                playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
+                showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                boardPrint(playfield, showfield);
+
+                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))])
+                {
+                    flag = false;
+                    writeLine("Welp you hit a mine, I am really not surprised! :D");
+                    wait(2);
+                }
+            }
+
+        }
 
 
 
@@ -170,30 +215,75 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             // namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             //
            */ // Have fun
-            static void boardPrint(String[,] playF, bool[,] showF) // Finished
-            {
-                String printer = "";
-                writeLine("-----------------------------------------\n");
-                for (int k = 0; k < 10; k++)
-                {
 
-                    printer = "| ";
-                    for (int i = 0; i < 10; i++)
+        private string minecheck(int y, int x, bool[,] mineF) // Finished
+        {
+            int counter = 0;
+            int lowery = y - 1, lowerx = x - 1, uppery = 2, upperx = 2;
+
+            if (mineF[y, x])
+                return "X";
+
+
+            if (y == 0)
+                lowery = 0;
+
+            if (y == 9)
+                uppery = 1;
+
+            if (x == 0)
+                lowerx = 0;
+
+            if (x == 9)
+                upperx = 1;
+
+            for (int j = lowery; j < y + uppery; j++)
+            {
+
+                for (int a = lowerx; a < x + upperx; a++)
+                {
+                    if (mineF[j, a])
                     {
-                        if (showF[k, i])
-                        {
-                            printer += playF[k, i] + " | ";
-                        }
-                        else
-                        {
-                            printer += "?" + " | ";
-                        }
+                        counter++;
                     }
-                    writeLine(printer + "\n");
-                    writeLine("-----------------------------------------\n");
                 }
             }
+            return "" + counter;
         }
+
+
+        private void boardPrint(String[,] playF, bool[,] showF) // Finished
+        {
+            
+            String printer = "";
+            writeLine("------------------------------\n");
+            for (int k = 0; k < 10; k++)
+            {
+
+                printer = "[";
+                for (int i = 0; i < 10; i++)
+                {
+                    if (showF[k, i])
+                    {
+                        printer += playF[k, i] + "]";
+                    }
+                    else
+                    {
+                        printer += "?" + "]";
+                    }
+                    if (i != 9)
+                        printer += "[";
+                }
+                writeLine(printer + "\n");
+                writeLine("------------------------------\n");
+            }
+        }
+
+        /*private bool wincheck(bool[,] showF, bool[,] mineF)
+        {
+            
+        } */
+        
 
     }
 }
