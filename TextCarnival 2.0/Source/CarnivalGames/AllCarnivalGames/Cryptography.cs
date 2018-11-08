@@ -16,7 +16,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             clear();
-            showTitle("Cryptography Game");
+            showTitle("|c0Cryptography Game");
 
             writeOut("TH15 W1LL B3 @ TR1(KY G@M3 F0R 5UR3!");
             wait(5);
@@ -44,7 +44,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             while (true)
             {
                 clear();
-                writeLine("|c0round " + round);
+                writeLine("|40round " + round);
                 Random rand = new Random();
                 Random Value = new Random();
                 int Val = Value.Next();
