@@ -86,13 +86,13 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public void shop()
         {
             writeLine("Welcome to the shop Lord Thanos, dont ask me why you of all people have to pay for things...\nStones[A]\nMinions[S]\nFleet[D]\nthots[F]");
-            ConsoleKeyInfo input = Console.ReadKey();
-            if(input.KeyChar == 'a')
+            ConsoleKey input = getKey();
+            if(input == ConsoleKey.A)
             {
                 clear();
-                writeLine("Infinity Stones are objects which hold great power over an aspect of the universe and they add to your stone multiplier\nBuy Power for 5000[A]\nBuy Space for 20000[D]\nBuy the Reality for 50000[F]\nBuy the Soul Stone for 150000[G]\nBuy the Time Stone for 250000[H]\nBuy The Mind Stone for 1000000[J]");
-                ConsoleKeyInfo input2 = Console.ReadKey();
-                if(input2.KeyChar == 'a')
+                writeLine("Infinity Stones are objects which hold great power over an aspect of the universe and they add to your stone multiplier\n(A)Buy Power for [5000]\n(S)Buy Space for [20000]\n(D)Buy the Reality for [50000]\n(F)Buy the Soul Stone for [150000]\n(G)Buy the Time Stone for [250000]\n(H)Buy The Mind Stone for [1000000]");
+                ConsoleKey inputStone = getKey();
+                if(inputStone == ConsoleKey.A)
                 {
                     if(thanoscoins >= 5000)
                     {
@@ -102,7 +102,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You bought the Orb!");
                     }
                 }
-                if (input2.KeyChar == 's')
+                if (inputStone == ConsoleKey.S)
                 {
                     if (thanoscoins >= 20000)
                     {
@@ -112,7 +112,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You bought the Tesseract!");
                     }
                 }
-                if (input2.KeyChar == 'd')
+                if (inputStone == ConsoleKey.D)
                 {
                     if (thanoscoins >= 50000)
                     {
@@ -122,7 +122,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You bought the Aether!");
                     }
                 }
-                if (input2.KeyChar == 'f')
+                if (inputStone == ConsoleKey.F)
                 {
                     if (thanoscoins >= 5000)
                     {
@@ -132,7 +132,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You bought the stone of power!");
                     }
                 }
-                if (input2.KeyChar == 'g')
+                if (inputStone == ConsoleKey.G)
                 {
                     if (thanoscoins >= 150000)
                     {
@@ -153,7 +153,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         }
                     }
                 }
-                if (input2.KeyChar == 'h')
+                if (inputStone == ConsoleKey.H)
                 {
                     if (thanoscoins >= 250000)
                     {
@@ -163,7 +163,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You bought the Eye of Agamoto!");
                     }
                 }
-                if (input2.KeyChar == 'j')
+                if (inputStone == ConsoleKey.J)
                 {
                     if (thanoscoins >= 1000000)
                     {
@@ -174,17 +174,45 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     }
                 }
             }
-            if(input.KeyChar == 's')
+            if(input == ConsoleKey.S)
             {
                 clear();
                 writeLine("Minions aid in planet raids making them more profitable");
+                writeLine("To buy minions click the corresponding key");
+                writeLine("(A)Recruit Cull Obsidian[500]\n(S)Recruit Ebony Maw[1000]\n(D)Recruit Corvus Glaive[2500]\n(F)Recruit Proxima Midnight[4000]");
+                ConsoleKey inputminion = getKey();
+                if(inputminion == ConsoleKey.A)
+                {
+                    clear();
+                    minions = minions + 1;
+                    writeLine("You recruited Cull Obsidian!");
+                }
+                if (inputminion == ConsoleKey.S)
+                {
+                    clear();
+                    minions = minions + 1;
+                    writeLine("You recruited Ebony Maw!");
+                }
+                if (inputminion == ConsoleKey.D)
+                {
+                    clear();
+                    minions = minions + 1;
+                    writeLine("You recruited Corvus Glaive!");
+                }
+                if (inputminion == ConsoleKey.F)
+                {
+                    clear();
+                    minions = minions + 1;
+                    writeLine("You recruited Proxima Midnight!");
+                }
+
             }
-            if(input.KeyChar == 'd')
+            if(input == ConsoleKey.D)
             {
                 clear();
                 writeLine("Buying fleet ships will increase the number of raids you can do at once!");
             }
-            if (input.KeyChar == 'f')
+            if (input == ConsoleKey.F)
             {
                 clear();
                 writeLine("Would you like to know how many thots there are? Y/N");
