@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
     {
         public String q = " ", w = " ", e = " ", r = " ", a = " ", s = " ", d = " ", f = " ", z = " ", x = " ", c = " ", v = " ";
         public static Random rand = new Random();
+        public static Stopwatch time = new Stopwatch();
+        public int limit = 1000;
         public int hole = rand.Next(1, 12);
+        public int score = 0;
+        String input;
         public WhackAMole() : base()
         {
             
@@ -82,9 +87,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeLine("+ - +  + - +  + - +  + - +");
                 writeLine("- " + z + " -  - " + x + " -  - " + c + " -  - " + v + " -");
                 writeLine("+ - +  + - +  + - +  + - +");
-                getMole();
-                wait(1);
+                writeLine("SCORE: " + score);
+                hitMole();
                 clear();
+                clearHoles();
+                getMole();
                 drawBoard();
             }
         }
@@ -143,6 +150,40 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 v = "@";
             }
+        }
+        public void hitMole()
+        {
+            time.Start();
+            input = getKey().ToString();
+            time.Stop();
+            if(time.ElapsedMilliseconds>limit)
+            {
+                return;
+            }
+            if (input == "Q" && hole == 1)
+                score++;
+            if (input == "W" && hole == 2)
+                score++;
+            if (input == "E" && hole == 3)
+                score++;
+            if (input == "R" && hole == 4)
+                score++;
+            if (input == "A" && hole == 5)
+                score++;
+            if (input == "S" && hole == 6)
+                score++;
+            if (input == "D" && hole == 7)
+                score++;
+            if (input == "F" && hole == 8)
+                score++;
+            if (input == "Z" && hole == 9)
+                score++;
+            if (input == "X" && hole == 10)
+                score++;
+            if (input == "C" && hole == 11)
+                score++;
+            if (input == "V" && hole == 12)
+                score++;
         }
     }
 }
