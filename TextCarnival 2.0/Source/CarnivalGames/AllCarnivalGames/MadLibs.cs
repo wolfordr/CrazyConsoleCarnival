@@ -21,21 +21,22 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             //Shows the green title text
-            showTitle("|c0WELCOME TO THE HALLOWEEN MADLIB!");
+            showTitle("|20WELCOME TO THE HALLOWEEN MADLIB!");
 
-            writeLine("|c4This is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
-            writeLine("|c4Once you're done, you can read your final story!");
-            writeLine("|c4Are you ready to begin?");
+            writeLine("|50This is a  phrasal template word game in which I will prompt you for a list of words to substitute for blanks in a story.");
+            writeLine("|20Once you're done, you can read your final story!");
+            writeLine("|50Are you ready to begin?");
+
             bool getsIt = getYesNo();
 
             if (getsIt)
-                writeLine("|c0Great.");
+                writeLine("|20Great.");
             else
-                writeLine("|c0Try it anyways.");
+                writeLine("|20Try it anyways.");
             wait(1.5);
             clear();
-
-            showSeperator(30, "|e0", "|d0");
+   
+            showSeperator(30, "|20", "|50");
 
             String Adjective1;
             String FirstName1;
@@ -95,19 +96,21 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeOut("Enter a plural noun: ");
             PluralNoun = Console.ReadLine();
 
-            writeOut(". . .");
-            wait(1.5);
+            writeOut(".........................");
+            wait(1);
+
+            writeLine("\t");
 
             writeOut("Finally, enter your last verb ending in -ing: ");
             VerbIng3 = Console.ReadLine();
 
-            writeOut(". . . Creating your Halloween MadLib . . .");
+            typeWriter("...Creating your story...");
             wait(3.0);
 
-            showSeperator(30, "|e0", "|d0");
+            showSeperator(30, "|20", "|50");
 
 
-            writeOut("They say my school is haunted; my " + Adjective1 + " friend " + FirstName1 + " says they saw a " + Adjective2
+            writeOut("They say my school is haunted. My " + Adjective1 + " friend " + FirstName1 + " says they saw a " + Adjective2
             + " " + Noun1 + " floating at the end of the hall near the cafeteria. Some say if you "
             + Verb + " down the hallway at night, you'll hear a " + Animal + " " + VerbIng1 + " " + Adverb + ". My "
             + Adjective3 + " friend " + FirstName2 + " saw a " + Adjective4 + " " + Noun2 + " " + VerbIng2 +
