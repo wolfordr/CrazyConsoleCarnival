@@ -101,11 +101,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Orb!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
                 }
                 if (inputStone == ConsoleKey.S)
                 {
@@ -115,11 +110,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         thanoscoins = (thanoscoins - 20000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Tesseract!");
-                    }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
                     }
                 }
                 if (inputStone == ConsoleKey.D)
@@ -131,11 +121,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Aether!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
                 }
                 if (inputStone == ConsoleKey.F)
                 {
@@ -145,11 +130,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         thanoscoins = (thanoscoins - 5000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the stone of power!");
-                    }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
                     }
                 }
                 if (inputStone == ConsoleKey.G)
