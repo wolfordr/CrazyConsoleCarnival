@@ -183,27 +183,63 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 ConsoleKey inputminion = getKey();
                 if(inputminion == ConsoleKey.A)
                 {
-                    clear();
-                    minions = minions + 1;
-                    writeLine("You recruited Cull Obsidian!");
+                    if (thanoscoins >= 500)
+                    {
+                        clear();
+                        thanoscoins = (thanoscoins - 500);
+                        minions = minions + 1;
+                        writeLine("You recruited Cull Obsidian!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
                 if (inputminion == ConsoleKey.S)
                 {
-                    clear();
-                    minions = minions + 1;
-                    writeLine("You recruited Ebony Maw!");
+                    if (thanoscoins >= 1000)
+                    {
+                        clear();
+                        thanoscoins = (thanoscoins - 1000);
+                        minions = minions + 1;
+                        writeLine("You recruited Ebony Maw!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
                 if (inputminion == ConsoleKey.D)
                 {
-                    clear();
-                    minions = minions + 1;
-                    writeLine("You recruited Corvus Glaive!");
+                    if (thanoscoins >= 2500)
+                    {
+                        clear();
+                        thanoscoins = (thanoscoins - 2500);
+                        minions = minions + 1;
+                        writeLine("You recruited Corvus Glaive!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
                 if (inputminion == ConsoleKey.F)
                 {
-                    clear();
-                    minions = minions + 1;
-                    writeLine("You recruited Proxima Midnight!");
+                    if (thanoscoins >= 4000)
+                    {
+                        clear();
+                        thanoscoins = (thanoscoins - 4000);
+                        minions = minions + 1;
+                        writeLine("You recruited Proxima Midnight!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
 
             }
