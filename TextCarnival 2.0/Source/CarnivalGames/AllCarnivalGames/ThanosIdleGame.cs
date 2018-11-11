@@ -56,7 +56,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     clear();
                     earned = (thanoscoins * -1);
-                    thanoscoins = thanoscoins + (((planetRaid + minions) * fleet) * infinitystonemult);
+                    thanoscoins = thanoscoins + (((planetRaid + minions) * infinitystonemult) * fleet);
                     earned = earned + thanoscoins;
                     writeLine("Lord Thanos you earned " + earned + " that raid...");
                     writeLine("\nLord Thanos you have " + thanoscoins + " Thanos coins...");
@@ -101,6 +101,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Orb!");
                     }
+                    else
+                    {
+                        clear();
+                        nomoney();
+                    }
                 }
                 if (inputStone == ConsoleKey.S)
                 {
@@ -110,6 +115,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         thanoscoins = (thanoscoins - 20000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Tesseract!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
                     }
                 }
                 if (inputStone == ConsoleKey.D)
@@ -121,6 +131,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Aether!");
                     }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
                 if (inputStone == ConsoleKey.F)
                 {
@@ -130,6 +145,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         thanoscoins = (thanoscoins - 5000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the stone of power!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
                     }
                 }
                 if (inputStone == ConsoleKey.G)
@@ -162,6 +182,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Eye of Agamoto!");
                     }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
+                    }
                 }
                 if (inputStone == ConsoleKey.J)
                 {
@@ -171,6 +196,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         thanoscoins = (thanoscoins - 5000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You freakin killed vision dude holy moly!!!111!1!!!!!!");
+                    }
+                    else
+                    {
+                        clear();
+                        writeLine("You cannot afford that my lord! Please dont hurt me...");
                     }
                 }
             }
@@ -246,7 +276,31 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             if(input == ConsoleKey.D)
             {
                 clear();
-                writeLine("Buying fleet ships will increase the number of raids you can do at once!");
+                writeLine("Purchasing fleet ships will increase the number of raids you can do at once!");
+                writeLine("(A)Thanos Car Thanos Car[3000]\n(S)Q-Ship(6000)\n(D)Big H Ship(10000)");
+                ConsoleKey fleetinput = getKey();
+                
+                if(fleetinput == ConsoleKey.A)
+                {
+                    if (thanoscoins >= 3000)
+                    {
+                        clear();
+                        fleet = fleet + 1;
+                        writeLine("Thanos Car Wins Piston Cup\nThanos Car Wins Piston Cup");
+                    }
+                }
+                if (fleetinput == ConsoleKey.S)
+                {
+                    clear();
+                    fleet = fleet + 2;
+                    writeLine("\"We are now in a flying donut, billions of miles from Earth.\"");
+                }
+                if (fleetinput == ConsoleKey.D)
+                {
+                    clear();
+                    fleet = fleet + 3;
+                    writeLine("Thanos really travelling in a big old H");
+                }
             }
             if (input == ConsoleKey.F)
             {
@@ -258,6 +312,19 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("There are " + thots + " thots in this sector sir.");
                 }
             }
+        }
+
+        public String nomoney()
+        {
+            Random rnd = new Random();
+            int random = rnd.Next(1, 4);
+            String[] hateToBreakItToYa = new String[10];
+            hateToBreakItToYa[0] = "You cannot afford that my lord! Please dont hurt me...";
+            hateToBreakItToYa[1] = "Okay so basically... you cannot afford this";
+            hateToBreakItToYa[2] = "Your coins are monky";
+            hateToBreakItToYa[3] = "You > Thanoscoins";
+
+            return hateToBreakItToYa[random];
         }
         
     }
