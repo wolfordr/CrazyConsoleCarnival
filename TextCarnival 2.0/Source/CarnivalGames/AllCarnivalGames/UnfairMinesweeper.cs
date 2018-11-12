@@ -43,7 +43,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             bool flag = true;
             String input;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++) // assigns values to mine, showboard, and the playing field
             {
                 for (int k = 0; k < 10; k++)
                 {
@@ -63,12 +63,12 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
             boardPrint(playfield, showfield);
 
-            while (flag)
+            while (flag) // flag ends loops if you fail or press Q
             {
                 writeLine("input a cordinate with the y first then the x with a comma bewtween exp. 7,8\n");
                 input = getInput();
                 if (input.Equals("Q")) { break; }
-                if (input.Length > 3 || input.Length <= 2)
+                if (input.Length > 3 || input.Length <= 2) // if error then loss :D
                 {
                     writeLine("INVALID INPUT! Try again :D");
                     break;
@@ -77,16 +77,17 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
                 playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
                 showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+
                 boardPrint(playfield, showfield);
 
-                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))])
+                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))]) // fail ending
                 {
                     flag = false;
                     writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
                     wait(2);
                 }
 
-                if (wincheck(showfield, minefield))
+                if (wincheck(showfield, minefield)) // win ending
                 {
                     writeOut("You must have gotten a really easy board or you are a god at logic.");
                     wait(2);
@@ -114,13 +115,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             if (mineF[y, x])
                 return "X";
 
-
             if (y == 0) { lowery = 0; }
-
             if (y == 9) { uppery = 1; }
-
             if (x == 0) { lowerx = 0; }
-
             if (x == 9) { upperx = 1; }
 
             for (int j = lowery; j < y + uppery; j++)
@@ -161,7 +158,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         printer += "[";
                 }
                 writeLine(printer + "\n");
-               
             }
         }
 
@@ -179,7 +175,5 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
             return true;
         } 
-        
-
     }
 }
