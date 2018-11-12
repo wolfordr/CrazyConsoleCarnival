@@ -27,7 +27,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(2);
             writeOut("I don't know why you would want to leave but if you do just type in Q");
             wait(2);
-            writeOut("BTW you can't flag mines, If that sounds unfair rearead the name of this game");
+            writeOut("BTW you can't flag mines, If that sounds unfair reread the name of this game");
             wait(2);
             writeOut("correctly reveal all safe spaces to win!");
             wait(1);
@@ -66,7 +66,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             while (flag)
             {
                 writeLine("input a cordinate with the y first then the x with a comma bewtween exp. 7,8\n");
-                input = Console.ReadLine();
+                input = getInput();
                 if (input.Equals("Q")) { break; }
                 if (input.Length > 3 || input.Length <= 2)
                 {
