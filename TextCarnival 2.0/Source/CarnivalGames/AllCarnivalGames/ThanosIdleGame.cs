@@ -60,11 +60,17 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     earned = earned + thanoscoins;
                     writeLine("Lord Thanos you earned " + earned + " that raid...");
                     writeLine("\nLord Thanos you have " + thanoscoins + " Thanos coins...");
+                    if(infinitystonemult == 1)
+                    {
+                        writeLine("Stats:\nMinion Bonus: " + minions + "\nFleet Ships: " + fleet + "\nInfinity Stone Multiplier: None");
+                    }
+                    else
+                    writeLine("Stats:\nMinion Bonus: " + minions + "\nFleet Ships: " + fleet + "\nInfinity Stone Multiplier: " + infinitystonemult);
                 }
                 if (input.KeyChar == 'x')
                 {
                     clear();
-                    shop();
+                    Shop();
                 }
                 /*
                 if (input.KeyChar == 'x')
@@ -83,7 +89,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
         }
 
-        public void shop()
+        public void Shop()
         {
             writeLine("Welcome to the shop Lord Thanos, dont ask me why you of all people have to pay for things...\nStones[A]\nMinions[S]\nFleet[D]\nthots[F]");
             ConsoleKey input = getKey();
@@ -94,18 +100,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 ConsoleKey inputStone = getKey();
                 if(inputStone == ConsoleKey.A)
                 {
-                    if(thanoscoins >= 5000)
+                    if (thanoscoins >= 5000)
                     {
                         clear();
                         thanoscoins = (thanoscoins - 5000);
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Orb!");
                     }
-                    else
-                    {
-                        clear();
-                        nomoney();
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.S)
                 {
@@ -116,11 +118,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Tesseract!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.D)
                 {
@@ -131,11 +129,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Aether!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.F)
                 {
@@ -146,11 +140,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the stone of power!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.G)
                 {
@@ -172,6 +162,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                             writeLine("Don't do that, thots are temporary, infinity stones are forever.\nTry again later");
                         }
                     }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.H)
                 {
@@ -182,11 +173,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You bought the Eye of Agamoto!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputStone == ConsoleKey.J)
                 {
@@ -197,11 +184,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         infinitystonemult = infinitystonemult + 1;
                         writeLine("You freakin killed vision dude holy moly!!!111!1!!!!!!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
             }
             if(input == ConsoleKey.S)
@@ -220,11 +203,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         minions = minions + 1;
                         writeLine("You recruited Cull Obsidian!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputminion == ConsoleKey.S)
                 {
@@ -235,11 +214,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         minions = minions + 1;
                         writeLine("You recruited Ebony Maw!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputminion == ConsoleKey.D)
                 {
@@ -250,11 +225,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         minions = minions + 1;
                         writeLine("You recruited Corvus Glaive!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
                 if (inputminion == ConsoleKey.F)
                 {
@@ -265,11 +236,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         minions = minions + 1;
                         writeLine("You recruited Proxima Midnight!");
                     }
-                    else
-                    {
-                        clear();
-                        writeLine("You cannot afford that my lord! Please dont hurt me...");
-                    }
+                    else { Nomoney(); }
                 }
 
             }
@@ -288,18 +255,27 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         fleet = fleet + 1;
                         writeLine("Thanos Car Wins Piston Cup\nThanos Car Wins Piston Cup");
                     }
+                    else { Nomoney(); }
                 }
                 if (fleetinput == ConsoleKey.S)
                 {
-                    clear();
-                    fleet = fleet + 2;
-                    writeLine("\"We are now in a flying donut, billions of miles from Earth.\"");
+                    if (thanoscoins >= 6000)
+                    {
+                        clear();
+                        fleet = fleet + 2;
+                        writeLine("\"We are now in a flying donut, billions of miles from Earth.\"");
+                    }
+                    else { Nomoney(); }
                 }
                 if (fleetinput == ConsoleKey.D)
                 {
-                    clear();
-                    fleet = fleet + 3;
-                    writeLine("Thanos really travelling in a big old H");
+                    if (thanoscoins >= 10000)
+                    {
+                        clear();
+                        fleet = fleet + 3;
+                        writeLine("Thanos really travelling in a big old H");
+                    }
+                    else { Nomoney(); }
                 }
             }
             if (input == ConsoleKey.F)
@@ -314,17 +290,17 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
         }
 
-        public String nomoney()
+        public void Nomoney()
         {
             Random rnd = new Random();
-            int random = rnd.Next(1, 4);
-            String[] hateToBreakItToYa = new String[10];
-            hateToBreakItToYa[0] = "You cannot afford that my lord! Please dont hurt me...";
-            hateToBreakItToYa[1] = "Okay so basically... you cannot afford this";
-            hateToBreakItToYa[2] = "Your coins are monky";
-            hateToBreakItToYa[3] = "You > Thanoscoins";
+            int random = rnd.Next(0, 4);
+            String[] hateToBreakItToYa = new String[4];
+            hateToBreakItToYa[0] = "\nYou cannot afford that my lord! Please dont hurt me...";
+            hateToBreakItToYa[1] = "\nOkay so basically... you cannot afford this";
+            hateToBreakItToYa[2] = "\nYour coins are monky";
+            hateToBreakItToYa[3] = "\nYou > Thanoscoins";
 
-            return hateToBreakItToYa[random];
+            writeLine(hateToBreakItToYa[random]);
         }
         
     }
