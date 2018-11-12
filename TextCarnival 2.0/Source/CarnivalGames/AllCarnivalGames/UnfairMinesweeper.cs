@@ -24,17 +24,17 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             showTitle("WELCOME TO UNFAIR MINESWEEPER");
 
             writeOut("To play simply input a coordinate to reveal, The cords go 0-9 and originate from the top left corner");
-            wait(2);
+           
             writeOut("I don't know why you would want to leave but if you do just type in Q");
-            wait(2);
+          
             writeOut("BTW you can't flag mines, If that sounds unfair reread the name of this game");
-            wait(2);
+         
             writeOut("correctly reveal all safe spaces to win!");
-            wait(1);
+        
             writeOut("Board loading...");
-            wait(1);
+          
             writeOut("done!");
-            wait(1);
+           
 
             Random rng = new Random();
             bool[,] showfield = new bool[10, 10];
@@ -65,22 +65,30 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
             while (flag) // flag ends loops if you fail or press Q
             {
-                writeLine("input a cordinate with the y first then the x with a comma bewtween exp. 7,8\n");
+                writeLine("input a cordinate with the y first then the x with a comma bewtween, if its mine add an M to the back exp. 7,8 M\n");
                 input = getInput();
                 if (input.Equals("Q")) { break; }
-                if (input.Length > 3 || input.Length <= 2) // if error then loss :D
+                
+                if (input.Length > 5 || input.Length <= 2) // if error then loss :D
                 {
                     writeLine("INVALID INPUT! Try again :D");
                     break;
                 }
-
-
-                playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
-                showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                writeOut(input.Substring(4, 1));
+                if (input.Substring(4, 1).Equals("m"))
+                {
+                    playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = "f";
+                    showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                }
+                else
+                {
+                    playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
+                    showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                }
 
                 boardPrint(playfield, showfield);
 
-                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))]) // fail ending
+                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] && !(playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))].Equals("M"))) // fail ending
                 {
                     flag = false;
                     writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
