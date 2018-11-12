@@ -74,8 +74,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("INVALID INPUT! Try again :D");
                     break;
                 }
-                writeOut(input.Substring(4, 1));
-                if (input.Substring(4, 1).Equals("m"))
+                
+                if (input.Length >3 && input.Substring(4, 1).Equals("m"))
                 {
                     playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = "f";
                     showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
@@ -88,14 +88,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
                 boardPrint(playfield, showfield);
 
-                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] && !(playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))].Equals("M"))) // fail ending
+                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] && !(playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))].Equals("f"))) // fail ending
                 {
                     flag = false;
                     writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
                     wait(2);
                 }
 
-                if (wincheck(showfield, minefield)) // win ending
+                if (wincheck(playfield, minefield)) // win ending
                 {
                     writeOut("You must have gotten a really easy board or you are a god at logic.");
                     wait(2);
@@ -169,15 +169,25 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
         }
 
-        private bool wincheck(bool[,] showF, bool[,] mineF)
+        private bool wincheck(String[,] showF, bool[,] mineF)
         {
             for (int i = 0; i < 10;i++)
             {
                 for (int k = 0; k < 10; k++)
                 {
-                    if (!(showF[i,k]) && !(mineF[i,k]))
+                    if (mineF[i,k])
                     {
-                        return false;
+                        if (!(showF[i,k].Equals("f")))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (showF[i,k].Equals("f"))
+                        {
+                            return false;
+                        }
                     }
                 }
             }
