@@ -24,10 +24,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 clear();
                 Random rand = new Random();
-                int cor = rand.Next(0, cups);
-                writeLine("Choose difficulty: (1, 3, 4, or 5)");
+                writeLine("Choose difficulty: (1, 2, 3, 4, or 5)");
                 int cups = getInput();
-                writeLine("round " + round);
+                if ( cups <= 0 )
+                {
+                    break;
+                }
+                int cor = rand.Next(0, cups);
+                writeLine("Round " + round);
                 for ( int i = 1; i <= cups; i++ )
                 {
                     writeLine("  ___  \n  /   \  \n /     \ \n    " + i);
@@ -43,6 +47,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 else
                 {
                     writeLine("  ___  \n  /   \  \n /     \ ");
+                    wait(1);
                     writeLine("WRONG");
                 }
 
