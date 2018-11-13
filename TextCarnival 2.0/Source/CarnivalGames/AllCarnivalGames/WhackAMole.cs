@@ -141,53 +141,29 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         {
             hole = rand.Next(1, 12);
             if (hole == 1)
-            {
                 q = "@";
-            }
             else if (hole == 2)
-            {
                 w = "@";
-            }
             else if (hole == 3)
-            {
                 e = "@";
-            }
             else if (hole == 4)
-            {
                 r = "@";
-            }
             else if (hole == 5)
-            {
                 a = "@";
-            }
             else if (hole == 6)
-            {
                 s = "@";
-            }
             else if (hole == 7)
-            {
                 d = "@";
-            }
             else if (hole == 8)
-            {
                 f = "@";
-            }
             else if (hole == 9)
-            {
                 z = "@";
-            }
             else if (hole == 10)
-            {
                 x = "@";
-            }
             else if (hole == 11)
-            {
                 c = "@";
-            }
             else if (hole == 12)
-            {
                 v = "@";
-            }
         }
         public void hitMole()
         {
@@ -196,9 +172,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             input = getKey();
             time.Stop();
             if(time.ElapsedMilliseconds>limit)
-            {
                 return;
-            }
             if (input.ToString() == "Q" && hole == 1)
                 score++;
             if (input.ToString() == "W" && hole == 2)
