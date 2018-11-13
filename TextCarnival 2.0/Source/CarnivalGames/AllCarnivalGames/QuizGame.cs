@@ -32,13 +32,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeLine("Well looks like your doing it anyway, I bet you fail");
             wait(3);
             clear();
-            writeLine("---------------------------------------------");
-            writeLine("                Directions                   ");
-            writeLine("---------------------------------------------");
+            writeLine("|50---------------------------------------------");
+            writeLine("|b0                Directions                   ");
+            writeLine("|50---------------------------------------------");
             wait(0.5);
             writeLine("In this game you will be given a series of 15 sports trivia question, answered by multiple choice.");
             wait(2);
-            writeLine("|50BE SURE TO TYPE A LETTER THAT CORRESPINDS, ANYTHING ELSE WILL BE WRONG");
+            writeLine("|0cBE SURE TO TYPE A LETTER THAT CORRESPINDS, ANYTHING ELSE WILL BE WRONG");
+            wait(1);
             writeOut("Ready to start? ");
             bool start = getYesNo();
             if (start)
@@ -70,13 +71,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             if (qes1 == "b" || qes1 == "B") 
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
+             
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -95,16 +97,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes2 = getInput();
-            if (qes2 == "a" || qes1 == "A")
+            if (qes2 == "a" || qes2 == "A")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -123,16 +125,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes3 = getInput();
-            if (qes3 == "c" || qes1 == "C")
+            if (qes3 == "c" || qes3 == "C")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -153,16 +155,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes4 = getInput();
-            if (qes4 == "B" || qes1 == "b")
+            if (qes4 == "B" || qes4 == "b")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -182,16 +184,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes5 = getInput();
-            if (qes5 == "D" || qes1 == "d")
+            if (qes5 == "D" || qes5 == "d")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -211,16 +213,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes6 = getInput();
-            if (qes6 == "B" || qes1 == "b")
+            if (qes6 == "B" || qes6 == "b")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -240,16 +242,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes7 = getInput();
-            if (qes7 == "B" || qes1 == "b")
+            if (qes7 == "B" || qes7 == "b")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -269,16 +271,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes8 = getInput();
-            if (qes8 == "d" || qes1 == "D")
+            if (qes8 == "d" || qes8 == "D")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -297,16 +299,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes9 = getInput();
-            if (qes9 == "d" || qes1 == "D")
+            if (qes9 == "d" || qes9 == "D")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -325,16 +327,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes10 = getInput();
-            if (qes10 == "a" || qes1 == "A")
+            if (qes10 == "a" || qes10 == "A")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -354,16 +356,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes11 = getInput();
-            if (qes11 == "c" || qes1 == "C")
+            if (qes11 == "c" || qes11 == "C")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -382,16 +384,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes12 = getInput();
-            if (qes12 == "c" || qes1 == "C")
+            if (qes12 == "c" || qes12 == "C")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -411,16 +413,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes13 = getInput();
-            if (qes13 == "d" || qes1 == "D")
+            if (qes13 == "d" || qes13 == "D")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -428,7 +430,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             clear();
 
 
-            writeLine("Question 14:  What is ‘El Clásico’?");
+            writeLine("Question 14:  What is El Clasico?");
             wait(1);
             writeLine("[A] Game between Manchester City and Manchester United");
             wait(.5);
@@ -440,16 +442,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes14 = getInput();
-            if (qes14 == "b" || qes1 == "B")
+            if (qes14 == "b" || qes14 == "B")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -468,16 +470,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             wait(.5);
             writeLine("Answere: ");
             String qes15 = getInput();
-            if (qes15 == "b" || qes1 == "B")
+            if (qes15 == "b" || qes15 == "B")
             {
                 beep(9000, 0.5f);
-                writeLine("CORRECT");
+                writeLine("|0aCORRECT");
                 score++;
             }
             else
             {
                 beep(900, 0.5f);
-                writeLine("INCORRECT");
+                writeLine("|04INCORRECT");
             }
             wait(1);
             writeLine("|80Your current score is: " + score);
@@ -487,15 +489,36 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeLine("Congradulations on finishing the sports trivia !");
             wait(.5);
             writeLine("Your final score was ");
-            wait(.25);
+            wait(.5);
             writeLine(".");
-            wait(.25);
+            wait(.5);
             writeLine(".");
-            wait(.25);
+            wait(.5);
             writeLine(".");
-            wait(.25);
+            wait(.5);
             writeLine(score + " out of 15" );
-            writeLine("THANKS FOR PLAYING");
+            wait(1);
+            if(score == 15)
+            {
+                writeLine("WOW, PERFECT SCORE");
+                
+            }
+            else if (score >= 10 &&  score <= 14)
+            {
+                writeLine("Thats pretty good, you know your stuff");
+            }
+            else if (score > 5 && score <= 9)
+            {
+                writeLine("Thats okay, could improve");
+            }
+            else if (score <= 5)
+            {
+                writeLine("Come on, did you even try??");
+            }
+            wait(2);
+            writeLine("|b0THANKS FOR PLAYING");
+            wait(2);
+
             
         }
 
