@@ -11,39 +11,40 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
     {
         public String q = " ", w = " ", e = " ", r = " ", a = " ", s = " ", d = " ", f = " ", z = " ", x = " ", c = " ", v = " ";
         public static Random rand = new Random();
-        public static Stopwatch time = new Stopwatch();
         public int limit = 1000;
-        public int hole = rand.Next(1, 12);
+        public int hole;
         public int score = 0;
-        String input;
+        public int goal = 15;
+        public bool winner = false;
+        ConsoleKey input;
         public WhackAMole() : base()
         {
-            
+
         }
 
         public override string getName()
         {
             return "Whack-A-Mole";
         }
-        
+
         public override void play()
         {
-            writeOut("Would you like to see the tutorial? yes or no?");
+            writeOut("Would you like to see the tutorial? yes or no? (If this is your first time, I recommend seeing it.)");
             bool tut = getYesNo();
-            if (tut){
+            if (tut) {
                 tutorial();
             }
-            writeOut("Start!"); wait(2);
+            writeOut("Start!"); wait(3);
             clear();
-            drawBoard();
+            primeBoard();
         }
         public void tutorial()
         {
             clear();
             writeOut("Welcome!"); wait(1);
             writeOut("This is Whack-A-Mole!"); wait(1);
-            writeOut("In this game, you whack..."); dramaticPause(3);
-            writeOut("...moles!"); wait(1);
+            writeOut("In this game, you..."); dramaticPause(3);
+            writeOut("...whack moles!"); wait(1);
             writeOut("The board looks like this:");
             writeLine("+ - +  + - +  + - +  + - +");
             writeLine("- Q -  - W -  - E -  - R -");
@@ -57,6 +58,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeLine("- Z -  - X -  - C -  - V -");
             writeLine("+ - +  + - +  + - +  + - +"); wait(3);
             writeOut("It's a 4x3 grid, and you hit a mole by hitting the key shown in the box."); wait(1);
+            writeOut("The moles will show up as @ signs in the boxes."); wait(1);
+            writeOut("They'll stay on screen until you hit them, but you won't gain points unless you hit them in time."); wait(1);
             writeOut("Simple, isn't it?"); wait(1);
             writeOut("Would you like to see the tutorial again?");
             bool again = getYesNo();
@@ -69,13 +72,40 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             else
             {
                 clear();
-                writeOut("Alright, let's go!"); wait(2);
+                writeOut("Alright!"); wait(1);
             }
+        }
+        public void primeBoard()
+        {
+            getMole();
+            drawBoard();
+        }
+        public void blankBoard()
+        {
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("-   -  -   -  -   -  -   -");
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("                          ");
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("-   -  -   -  -   -  -   -");
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("                          ");
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("-   -  -   -  -   -  -   -");
+            writeLine("+ - +  + - +  + - +  + - +");
+            writeLine("SCORE: " + score);
+            writeLine("GOAL: " + goal);
+            writeLine("ESC TO EXIT");
         }
         public void drawBoard()
         {
+            if (winner) { return; }
             while (true)
             {
+                if (winner) { writeOut("Sending you back to the carnival..."); wait(2); return; }
+                blankBoard();
+                wait(rand.Next(1, 3));
+                clear();
                 writeLine("+ - +  + - +  + - +  + - +");
                 writeLine("- " + q + " -  - " + w + " -  - " + e + " -  - " + r + " -");
                 writeLine("+ - +  + - +  + - +  + - +");
@@ -88,8 +118,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeLine("- " + z + " -  - " + x + " -  - " + c + " -  - " + v + " -");
                 writeLine("+ - +  + - +  + - +  + - +");
                 writeLine("SCORE: " + score);
+                writeLine("GOAL: " + goal);
+                writeLine("ESC TO EXIT");
                 hitMole();
                 clear();
+                if(score==goal)
+                {
+                    winner = true;
+                    writeOut("You win!"); wait(1);
+                    return;
+                }
                 clearHoles();
                 getMole();
                 drawBoard();
@@ -153,37 +191,40 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         }
         public void hitMole()
         {
+            Stopwatch time = new Stopwatch();
             time.Start();
-            input = getKey().ToString();
+            input = getKey();
             time.Stop();
             if(time.ElapsedMilliseconds>limit)
             {
                 return;
             }
-            if (input == "Q" && hole == 1)
+            if (input.ToString() == "Q" && hole == 1)
                 score++;
-            if (input == "W" && hole == 2)
+            if (input.ToString() == "W" && hole == 2)
                 score++;
-            if (input == "E" && hole == 3)
+            if (input.ToString() == "E" && hole == 3)
                 score++;
-            if (input == "R" && hole == 4)
+            if (input.ToString() == "R" && hole == 4)
                 score++;
-            if (input == "A" && hole == 5)
+            if (input.ToString() == "A" && hole == 5)
                 score++;
-            if (input == "S" && hole == 6)
+            if (input.ToString() == "S" && hole == 6)
                 score++;
-            if (input == "D" && hole == 7)
+            if (input.ToString() == "D" && hole == 7)
                 score++;
-            if (input == "F" && hole == 8)
+            if (input.ToString() == "F" && hole == 8)
                 score++;
-            if (input == "Z" && hole == 9)
+            if (input.ToString() == "Z" && hole == 9)
                 score++;
-            if (input == "X" && hole == 10)
+            if (input.ToString() == "X" && hole == 10)
                 score++;
-            if (input == "C" && hole == 11)
+            if (input.ToString() == "C" && hole == 11)
                 score++;
-            if (input == "V" && hole == 12)
+            if (input.ToString() == "V" && hole == 12)
                 score++;
+            if (input == ConsoleKey.Escape)
+                winner = true;
         }
     }
 }
