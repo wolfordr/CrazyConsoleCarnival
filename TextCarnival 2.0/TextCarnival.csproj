@@ -51,6 +51,7 @@
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\QuizGame.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\HorseyRaces.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\ReactorGame.cs" />
+    <Compile Include="Source\CarnivalGames\AllCarnivalGames\Superman v0.1.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\TurnBasedRPG.cs" />
     <Compile Include="Source\CarnivalGames\CarnivalGame.cs" />
     <Compile Include="Source\Client\Client.cs" />
