@@ -68,7 +68,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeLine("|e0You decided to work longer|");
                 wait(2);
                 money = +200;
-                writeOut("You now have" + money + "dollars");
+                writeOut("You now have " + money + " dollars");
                 wait(2);
                 writeOut("A new face, Roger, walks in and asks for some beer");
                 wait(2);
@@ -149,7 +149,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                             wait(2);
                             writeOut("You wake up on a Saturday morning with no plans");
                             wait(2);
-                            writeLine("You can go to the [park], stay [home], or |e0[meet]| with the leaders of Ruckersburg");
+                            writeLine("You can go to the [park], stay [home], or |e0[meet] with the leaders of Ruckersburg|");
                             wait(2);
                             String optE = getOption("park", "home", "meet");
                             if (optE == "park")
@@ -202,6 +202,13 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                     {
                                         writeOut("You are broke");
                                         writeOut("You now have" + money + "dollars");
+                                        wait(2);
+                                        writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
+                                        wait(2);
+                                        writeLine("|e0You need the first DLC Pack to Continue|");
+                                        wait(2);
+                                        writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                        wait(2);
                                     }
 
                                     wait(2);
@@ -230,6 +237,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                         wait(2);
                                         writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
                                         wait(2);
+                                        writeLine("|e0You need the first DLC Pack to Continue|");
+                                        wait(2);
+                                        writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                        wait(2);
                                     }
                                     else
                                     {
@@ -238,6 +249,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                         writeOut("You continue on your way a richer, but lonelier person");
                                         wait(2);
                                         writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                        wait(2);
+                                        writeLine("|e0You need the first DLC Pack to Continue|");
+                                        wait(2);
+                                        writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
                                         wait(2);
                                     }
                                 }
@@ -259,6 +274,24 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                             }
                             if(optE == "meet")
                             {
+                                writeLine("|e0You decided to head to the Leaders of Ruckersburg meeting.|");
+                                wait(2);
+                                writeOut("When you get to Rob's house there are some familiar faces surprisingly");
+                                wait(2);
+                                writeOut("You see some of your friends from highschool and some regulars at the bar");
+                                wait(2);
+                                writeOut("from the side of a room you here a voice call to you");
+                                wait(2);
+                                writeOut(name + "? Is that you?");
+                                wait(2);
+                                writeOut("She says her name is Grace and she worked with your mother");
+                                wait(2);
+                                writeOut("You haven't seen your mother since you were a kid");
+                                wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue, and find out what happened to your mother!|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
 
                             }
 
@@ -350,11 +383,22 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 wait(2);
                                 meter = +2;
                                 writeOut("Your personality meter is now" + meter);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
                             }
                             else
                             {
                                 writeOut("You are broke");
                                 writeOut("You now have" + money + "dollars");
+                                wait(2);
+                                writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
+                                wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
                             }
 
                             wait(2);
@@ -383,6 +427,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 wait(2);
                                 writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
                                 wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
                             }
                             else
                             {
@@ -391,6 +439,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 writeOut("You continue on your way a richer, but lonelier person");
                                 wait(2);
                                 writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
                                 wait(2);
                             }
                         }
@@ -480,6 +532,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         wait(2);
                         meter = +-10;
                         writeOut("|e0Your personality score is now|" + meter);
+                        writeLine("|e0You need the first DLC Pack to Continue|");
+                        wait(2);
+                        writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                        wait(2);
 
                     }
                     if (optB == "question")
@@ -565,6 +621,134 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 wait(2);
                                 writeOut("It's saturday, so there is no work to do.");
                                 wait(2);
+                                writeOut("You can go to the [park] or stay [home]");
+                                wait(2);
+                                String optE = getOption("park", "home");
+                                if (optE == "park")
+                                {
+                                    writeOut("|e0You decided to go to Bigslice park|");
+                                    wait(2);
+                                    writeOut("There are a few people around, but it's mostly empty");
+                                    wait(2);
+                                    writeOut("You spend the day relaxing in the shade with birds chirping above");
+                                    wait(2);
+                                    writeOut("On your way home there seems to be some sort of commotion on the street.");
+                                    wait(2);
+                                    writeOut("There is a dog riding a bike around town");
+                                    wait(2);
+                                    writeOut("You push your way through the crowd to get to the front and there stands an older woman and her dog");
+                                    wait(2);
+                                    writeOut("People and robots alike are just throwing money at them");
+                                    wait(2);
+                                    writeOut("They are amazed at what this dog can do");
+                                    wait(2);
+                                    writeOut("Do you want to donate some money, [yes] or [no]");
+                                    wait(2);
+                                    String optF = getOption("yes", "no");
+                                    if (optF == "yes")
+                                    {
+                                        if (money > 0)
+                                        {
+                                            money = +-5;
+                                            writeOut("You give her 5 dollars");
+                                            wait(2);
+                                            writeOut("You now have" + money + "dollars");
+                                            writeOut("She stops you as you go to walk away");
+                                            wait(2);
+                                            writeOut(name + "? Is that you?");
+                                            wait(2);
+                                            writeOut("She says her name is Grace and she worked with your mother");
+                                            wait(2);
+                                            writeOut("You haven't seen your mother since you were a kid");
+                                            wait(2);
+                                            writeOut("She has work to do, but she would be happy talking to you later.");
+                                            wait(2);
+                                            writeOut("She hands you her business card which includes her name, number, and occupation: \"clown\"");
+                                            wait(2);
+                                            writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
+                                            wait(2);
+                                            meter = +2;
+                                            writeOut("Your personality meter is now" + meter);
+                                            writeLine("|e0You need the first DLC Pack to Continue|");
+                                            wait(2);
+                                            writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                            wait(2);
+                                        }
+                                        else
+                                        {
+                                            writeOut("You are broke");
+                                            writeOut("You now have" + money + "dollars");
+                                            wait(2);
+                                            writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                            wait(2);
+                                            writeLine("|e0You need the first DLC Pack to Continue|");
+                                            wait(2);
+                                            writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                            wait(2);
+                                        }
+
+                                        wait(2);
+                                    }
+                                    if (optF == "no")
+                                    {
+                                        if (meter > 0)
+                                        {
+                                            writeOut("Your personality meter is too high for this");
+                                            wait(2);
+                                            money = +-5;
+                                            writeOut("You give her 5 dollars");
+                                            wait(2);
+                                            writeOut("You now have" + money + "dollars");
+                                            writeOut("She stops you as you go to walk away");
+                                            wait(2);
+                                            writeOut(name + "? Is that you?");
+                                            wait(2);
+                                            writeOut("She says her name is Grace and she worked with your mother");
+                                            wait(2);
+                                            writeOut("You haven't seen your mother since you were a kid");
+                                            wait(2);
+                                            writeOut("She has work to do, but she would be happy talking to you later.");
+                                            wait(2);
+                                            writeOut("She hands you her business card which includes her name, number, and occupation: \"clown\"");
+                                            wait(2);
+                                            writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
+                                            wait(2);
+                                            writeLine("|e0You need the first DLC Pack to Continue|");
+                                            wait(2);
+                                            writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                            wait(2);
+
+                                        }
+                                        else
+                                        {
+                                            writeOut("You are heartless.");
+                                            wait(2);
+                                            writeOut("You continue on your way a richer, but lonelier person");
+                                            wait(2);
+                                            writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                            wait(2);
+                                            writeLine("|e0You need the first DLC Pack to Continue|");
+                                            wait(2);
+                                            writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                            wait(2);
+                                        }
+                                    }
+
+                                }
+                                if (optE == "home")
+                                {
+                                    writeOut("You sit at home");
+                                    wait(2);
+                                    writeOut("You always sit at home");
+                                    wait(2);
+                                    writeOut("You end up having a very boring life doing nothing");
+                                    wait(2);
+                                    writeOut("GAME OVER");
+                                    wait(2);
+                                    writeOut("INSERT $5 TO REVIVE");
+                                    wait(2);
+
+                                }
 
 
                             }
@@ -629,11 +813,22 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 wait(2);
                                 meter = +2;
                                 writeOut("Your personality meter is now" + meter);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
                             }
                             else
                             {
                                 writeOut("You are broke");
                                 writeOut("You now have" + money + "dollars");
+                                wait(2);
+                                writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
                             }
 
                             wait(2);
@@ -662,6 +857,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 wait(2);
                                 writeOut("When you get home you drop your stuff on the couch, put the business card on the table, and head straight to sleep.");
                                 wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
+                                wait(2);
+
                             }
                             else
                             {
@@ -670,6 +870,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                                 writeOut("You continue on your way a richer, but lonelier person");
                                 wait(2);
                                 writeOut("When you get home you drop your stuff on the couch, and head straight to sleep.");
+                                wait(2);
+                                writeLine("|e0You need the first DLC Pack to Continue|");
+                                wait(2);
+                                writeLine("|e0$10 to purchase DLC Pack 1, Comes with dozens of new choices and endings!|");
                                 wait(2);
                             }
                         }
