@@ -16,7 +16,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             clear();
-            showTitle("Cryptography Game");
+            showTitle("|40Cryptography Game");
 
             writeOut("TH15 W1LL B3 @ TR1(KY G@M3 F0R 5UR3!");
             wait(5);
