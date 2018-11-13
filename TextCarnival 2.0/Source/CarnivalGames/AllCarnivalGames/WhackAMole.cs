@@ -173,29 +173,29 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             time.Stop();
             if(time.ElapsedMilliseconds>limit)
                 return;
-            if (input.ToString() == "Q" && hole == 1)
+            if (input == ConsoleKey.Q && hole == 1)
                 score++;
-            if (input.ToString() == "W" && hole == 2)
+            if (input == ConsoleKey.W && hole == 2)
                 score++;
-            if (input.ToString() == "E" && hole == 3)
+            if (input == ConsoleKey.E && hole == 3)
                 score++;
-            if (input.ToString() == "R" && hole == 4)
+            if (input == ConsoleKey.R && hole == 4)
                 score++;
-            if (input.ToString() == "A" && hole == 5)
+            if (input == ConsoleKey.A && hole == 5)
                 score++;
-            if (input.ToString() == "S" && hole == 6)
+            if (input == ConsoleKey.S && hole == 6)
                 score++;
-            if (input.ToString() == "D" && hole == 7)
+            if (input == ConsoleKey.D && hole == 7)
                 score++;
-            if (input.ToString() == "F" && hole == 8)
+            if (input == ConsoleKey.F && hole == 8)
                 score++;
-            if (input.ToString() == "Z" && hole == 9)
+            if (input == ConsoleKey.Z && hole == 9)
                 score++;
-            if (input.ToString() == "X" && hole == 10)
+            if (input == ConsoleKey.X && hole == 10)
                 score++;
-            if (input.ToString() == "C" && hole == 11)
+            if (input == ConsoleKey.C && hole == 11)
                 score++;
-            if (input.ToString() == "V" && hole == 12)
+            if (input == ConsoleKey.V && hole == 12)
                 score++;
             if (input == ConsoleKey.Escape)
                 winner = true;
