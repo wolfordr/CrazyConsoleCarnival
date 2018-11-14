@@ -66,7 +66,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("Your vision fades. You have died.");
                         writeLine("GAME OVER");
                     }
-                    if (getKey() == ConsoleKey.NumPad2)
+                    else if (getKey() == ConsoleKey.NumPad2)
                     {
                         clear();
                         writeLine("You start down the stairs, but you hear heavy footsteps coming quickly down the hallway.");
@@ -79,7 +79,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("GAME OVER");
                     }
                 }
-                if(getKey() == ConsoleKey.NumPad2)
+                else if(getKey() == ConsoleKey.NumPad2)
                 {
                     clear();
                     writeLine("Carl - Let's go find out!");
@@ -106,6 +106,31 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("Your friends tell you that Carl went missing last night and that nobody can find him.");
                         writeLine("You walk back home after school past Old Man Jenkins' house and it feels like the windows of the house are watching you.");
                         writeLine("Congratulations, you have survived.");
+                        writeLine("GAME OVER");
+                    }
+                    else if(getKey() == ConsoleKey.NumPad2)
+                    {
+                        clear();
+                        writeLine("You both descend to the basement.");
+                        writeLine("You turn on a hanging lightbulb to discover a small room filled with old furniture, decorations, and toys.");
+                        writeLine("Out of nowhere, you hear footsteps coming down the stairs.");
+                        writeLine("Thinking that old Man Jenkins is about to catch you, you turn off the light, making it pitch black, and both of you hide behind different furniture.");
+                        writeLine("However, as the footsteps reach the bottom, you relize that it's not Old Man Jenkins.");
+                        writeLine("The footsteps are heavy and there is a loud, gurgling breathing.");
+                        writeLine("As this monster walks into the center of the basement, the sound of its steps and breathing gets quieter and quieter until there's nothing.");
+                        //wait()
+                        writeLine("*silence*");
+                        //wait()
+                        writeLine("All of a sudden, you hear Carl getting dragged and scream.");
+                        writeLine("His voice dies out quickly as his neck is snapped by this monster and all you can hear in the silence is the sound of an animal eating.");
+                        //wait()
+                        writeLine("The sound of the monster eating soon fades out as well.");
+                        //wait()
+                        writeLine("*silence*");
+                        //wait()
+                        writeLine("You feel a heavy breath over the back of your neck.");
+                        writeLine("Befor eyou get a chance to react, you feel your neck snap.");
+                        writeLine("You have died.");
                         writeLine("GAME OVER");
                     }
                 }
