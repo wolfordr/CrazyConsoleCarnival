@@ -30,9 +30,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 clear();
                 writeLine("You're going Trick-or-Treating with a friend, Carl");
                 writeLIne("Being the dare-devil that he is, he suggests going to Old Man Jenkins' house at the end of the block.");
-                writeLIne("[Do you say...]");
-                writeLIne("1. 'I don't know, that house gives me a bad feeling.'");
-                writeLIne("2. 'Let's go! I haven't seen him in forever, do you think he's dead?'");
+                writeLIne("[You say...]");
+                writeLIne("1. I don't know, that house gives me a bad feeling.");
+                writeLIne("2. Let's go! I haven't seen him in forever, do you think he's still alive?");
                 if (getKey() == ConsoleKey.NumPad1)
                 {
                     clear();
@@ -41,7 +41,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLIne("You reluctantly accept, starting your walk towards the house.");
                     //wait()
                     writeLine("Carl opens the front door of Old Man Jenkins' house and you both walk in together.");
-                    writeLine("The house appears as though it hasn't been inhabited decades.");
+                    writeLine("The house appears as though it hasn't been inhabited in decades.");
                     writeLine("Everything is covered in a thick layer of dust and cobwebs.");
                     writeLine("Carl - Let's go find Old Man Jenkins!");
                     writeLine("Carl sprints up a staircase and zips out of sight.");
@@ -49,12 +49,22 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("Walking up the stairs, you notice old portraits of family hanging on the walls.");
                     writeLine("You reach the top of the stair case and arrive at a long hallway.");
                     writeLine("It's so dark that you can't see the end of the hallway");
+                    writeLine("All of a sudden, a blood curdling scream eminates from the end of the hallway.");
                     writeLine("You...");
                     writeLine("1. Run towards the scream to help your friend.");
                     writeLine("2. Turn around and walk away. You didn't like Carl that much anyways.");
                     if(getKey() == ConsoleKey.NumPad1)
                     {
-                        
+                        clear();
+                        writeLine("You rush down to the end of the hallway and hurredly pull open a large wooden door.");
+                        writeLine("As the door swings open, the smell of iron fills your lungs and you find your friend on the floor in a pool of blood.");
+                        writeLine("A pale, skeleton-like figure is standing over your aquaintence's corpse, eating.");
+                        writeLine("Your breath becomes heavy as the figure begins to peer over it's shoulder at you.");
+                        writeLine("Immediately, you quickly run back through the hallway and down the stairs, with the light, ghostly footsteps following you.");
+                        writeLine("You grab the handle of the front door, but the ghoul grabs your feet and drags you back in.");
+                        writeLine("The monster sinks it's teeth into you and tears your flesh from your body.");
+                        writeLine("Your vision fades. You have died.");
+                        writeLine("GAME OVER");
                     }
                     if (getKey() == ConsoleKey.NumPad2)
                     {
@@ -65,11 +75,40 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You turn around to find Carl right infront of you holding a large knife.");
                         writeLine("His eyes are rolled back so only the white show, and his neck is red and bloody.");
                         writeLine("Carl plunges his knife deep into your chest without warning.");
-                        writeLine("Everything goes black. you have died.");
+                        writeLine("Your vision fades. You have died.");
                         writeLine("GAME OVER");
                     }
                 }
-
+                if(getKey() == ConsoleKey.NumPad2)
+                {
+                    clear();
+                    writeLine("Carl - Let's go find out!");
+                    writeLine("You both jog down to the end of the block, where Old Man Jenkins' house lies.");
+                    writeLine("Carl opens the front door of Old Man Jenkins' house and you both walk in together.");
+                    writeLine("As you both walk through, a strong, cold wind hits you coming from the house.");
+                    writeLine("The house appears as though it hasn't been inhabited in decades.");
+                    writeLine("Everything is covered in a thick layer of dust and cobwebs.");
+                    writeLine("Carl walks immediately to the right and opens a door, revealing a staircase to the basement.");
+                    writeLine("Carl - Let's see what's down here.");
+                    writeLine("You say...");
+                    writeLine("1. I don't know, that's actually kinda creepy.");
+                    writeLine("2. There's probably some cool old antique stuff down there!");
+                    if (getKey() == ConsoleKey.NumPad1)
+                    {
+                        clear();
+                        writeLine("You - I think I'd rather just go home for tonight.");
+                        writeLine("Carl - Come on, man.");
+                        //wait()
+                        writeLine("Carl - Alright, fine. You can go, I'll let you know if I find anything cool tomorrow.");
+                        writeLine("You walk out the front door of the house, but before you get a chance to close the door, it slams itself shut.");
+                        writeLine("You walk home, but can't help but to feel that something was wrong.");
+                        writeLine("You wake up the next morning and go to school");
+                        writeLine("Your friends tell you that Carl went missing last night and that nobody can find him.");
+                        writeLine("You walk back home after school past Old Man Jenkins' house and it feels like the windows of the house are watching you.");
+                        writeLine("Congratulations, you have survived.");
+                        writeLine("GAME OVER");
+                    }
+                }
 
 
 
