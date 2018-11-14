@@ -23,9 +23,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             showTitle("BEWARE FOR YOU HAVE ENTERED THE HOUSE OF THE GHOUL");
             writeLine("to make choices, press the number key corresponding to your choice.");
             writeLine("press spacebar to begin");
-            
+
             //put wait()'s inbetween all lines?
-            if(getKey() == ConsoleKey.Spacebar)
+            if (getKey() == ConsoleKey.Spacebar)
             {
                 clear();
                 writeLine("You're going Trick-or-Treating with a friend, Carl");
@@ -53,7 +53,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("You...");
                     writeLine("1. Run towards the scream to help your friend.");
                     writeLine("2. Turn around and walk away. You didn't like Carl that much anyways.");
-                    if(getKey() == ConsoleKey.NumPad1)
+                    if (getKey() == ConsoleKey.NumPad1)
                     {
                         clear();
                         writeLine("You rush down to the end of the hallway and hurredly pull open a large wooden door.");
@@ -79,7 +79,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("GAME OVER");
                     }
                 }
-                else if(getKey() == ConsoleKey.NumPad2)
+                else if (getKey() == ConsoleKey.NumPad2)
                 {
                     clear();
                     writeLine("Carl - Let's go find out!");
@@ -108,7 +108,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("Congratulations, you have survived.");
                         writeLine("GAME OVER");
                     }
-                    else if(getKey() == ConsoleKey.NumPad2)
+                    else if (getKey() == ConsoleKey.NumPad2)
                     {
                         clear();
                         writeLine("You both descend to the basement.");
@@ -134,14 +134,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("GAME OVER");
                     }
                 }
-
-
-
-
             }
-
-            
         }
-
     }
 }
