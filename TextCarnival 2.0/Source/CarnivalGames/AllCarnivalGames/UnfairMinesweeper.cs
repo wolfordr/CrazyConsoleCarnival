@@ -10,7 +10,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
     {
         public UnfairMineSweeper() : base()
         {
-            
+
         }
 
         public override string getName()
@@ -24,17 +24,24 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             showTitle("WELCOME TO UNFAIR MINESWEEPER");
 
             writeOut("To play simply input a coordinate to reveal, The cords go 0-9 and originate from the top left corner");
-           
+
             writeOut("I don't know why you would want to leave but if you do just type in Q");
-          
-            writeOut("BTW you can't flag mines, If that sounds unfair reread the name of this game");
-         
+
+            writeOut("BTW you can flag mines but to unflag them you must reveal the space, If that sounds unfair reread the name of this game");
+
             writeOut("correctly reveal all safe spaces to win!");
-        
+
             writeOut("Board loading...");
-          
+
             writeOut("done!");
+
+            
            
+
+            
+
+
+
 
             Random rng = new Random();
             bool[,] showfield = new bool[10, 10];
@@ -61,6 +68,49 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 }
             }
 
+           
+
+
+            boardPrint(playfield, showfield);
+
+            writeOut("enter a place to start exp 6,7");
+
+
+            string starter = getInput();
+            int y = Int32.Parse(starter.Substring(2, 1));
+            int x = Int32.Parse(starter.Substring(0, 1));
+            int sy = y - 1, ey = y + 2, sx = x - 2, ex = x + 2;
+
+            if (y == 0) { sy = 0; }
+            if (y >= 8) { ey = 9; }
+            if (x <= 0) { sx = 0; }
+            if (x >= 8) { ex = 9; }
+
+
+
+            for (int i = sy; i <= ey; i++)
+            {
+                for (int k = sx; k <= ex; k++)
+                {
+                    if (minefield[i, k])
+                    {
+                        minefield[i, k] = false;
+                        
+
+                    }
+                }
+            }
+            for (int i = sy; i <= ey; i++)
+            {
+                for (int k = sx; k <= ex; k++)
+                {
+
+
+                    playfield[i, k] = minecheck(i, k, minefield);
+                    showfield[i, k] = true;
+
+                }
+            }
             boardPrint(playfield, showfield);
 
             while (flag) // flag ends loops if you fail or press Q
@@ -68,14 +118,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeLine("input a cordinate with the y first then the x with a comma bewtween, if its mine add an M to the back exp. 7,8 M\n");
                 input = getInput();
                 if (input.Equals("Q")) { break; }
-                
+
                 if (input.Length > 5 || input.Length <= 2) // if error then loss :D
                 {
                     writeLine("INVALID INPUT! Try again :D");
                     break;
                 }
-                
-                if (input.Length >3 && input.Substring(4, 1).Equals("m"))
+
+                if (input.Length > 3 && input.Substring(4, 1).Equals("m"))
                 {
                     playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = "f";
                     showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
@@ -139,15 +189,19 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     }
                 }
             }
+            if (counter == 0)
+            {
+                return " ";
+            }
             return "" + counter;
         }
 
 
         private void boardPrint(String[,] playF, bool[,] showF) // Finished
         {
-            
+
             String printer = "";
-          
+
             for (int k = 0; k < 10; k++)
             {
 
@@ -171,20 +225,20 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
         private bool wincheck(String[,] showF, bool[,] mineF)
         {
-            for (int i = 0; i < 10;i++)
+            for (int i = 0; i < 10; i++)
             {
                 for (int k = 0; k < 10; k++)
                 {
-                    if (mineF[i,k])
+                    if (mineF[i, k])
                     {
-                        if (!(showF[i,k].Equals("f")))
+                        if (!(showF[i, k].Equals("f")))
                         {
                             return false;
                         }
                     }
                     else
                     {
-                        if (showF[i,k].Equals("f"))
+                        if (showF[i, k].Equals("f"))
                         {
                             return false;
                         }
@@ -192,6 +246,41 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 }
             }
             return true;
-        } 
+        }
+
+        /*
+            string starter = ReadLine();
+            int y = starter.Substring(2,1);
+            int x = starter.Substring(0,1);
+            int sy = y - 1, ey = y + 2, sx = x - 2, ex = x + 2;
+
+            if (y == 0) {sy = 0;}
+            if (y>=8) {ey = 9;}
+            if (x <= 0) {sx = 0;}
+            if (x >= 8) {ex = 9;}
+
+            for (int i = sy; i <= ey; i++)
+            {
+                for (int k = sx; <= ex; k++)
+                {
+                    if (minefield[i,k])
+                    {
+                        minefield[i,k] = false;
+                        
+                    }   
+                }
+            }
+            for (int i = sy; i <= ey; i++)
+            {
+                for (int k = sx; <= ex; k++)
+                {
+                    
+                    
+                        playfield[i,k] = minecheck[i,k];
+                        
+                       
+                }
+            }
+         */
     }
 }
