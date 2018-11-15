@@ -8,6 +8,15 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 {
     class UnfairMineSweeper : CarnivalGame
     {
+        Random rng = new Random();
+        bool[,] showfield = new bool[10, 10];
+        bool[,] minefield = new bool[10, 10];
+        String[,] playfield = new String[10, 10];
+        bool flag;
+        String input;
+
+
+
         public UnfairMineSweeper() : base()
         {
 
@@ -43,12 +52,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
 
 
-            Random rng = new Random();
-            bool[,] showfield = new bool[10, 10];
-            bool[,] minefield = new bool[10, 10];
-            String[,] playfield = new String[10, 10];
-            bool flag = true;
-            String input;
+           
+            
+            flag = true;
+           
 
             for (int i = 0; i < 10; i++) // assigns values to mine, showboard, and the playing field
             {
