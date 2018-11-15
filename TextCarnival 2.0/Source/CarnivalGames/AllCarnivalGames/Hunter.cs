@@ -29,16 +29,16 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 clear();
                 writeLine("You're going Trick-or-Treating with a friend, Carl");
-                writeLIne("Being the dare-devil that he is, he suggests going to Old Man Jenkins' house at the end of the block.");
-                writeLIne("[You say...]");
-                writeLIne("1. I don't know, that house gives me a bad feeling.");
-                writeLIne("2. Let's go! I haven't seen him in forever, do you think he's still alive?");
-                if (getKey() == ConsoleKey.NumPad1)
+                writeLine("Being the dare-devil that he is, he suggests going to Old Man Jenkins' house at the end of the block.");
+                writeLine("[You say...]");
+                writeLine("1. I don't know, that house gives me a bad feeling.");
+                writeLine("2. Let's go! I haven't seen him in forever, do you think he's still alive?");
+                if (getKey() == ConsoleKey.D1)
                 {
                     clear();
                     writeLine("Carl - Come on, man. Don't wuss out on me like that.");
-                    writeLIne("Carl - Worst case scenario, he shakes his fist at us as we walk away.");
-                    writeLIne("You reluctantly accept, starting your walk towards the house.");
+                    writeLine("Carl - Worst case scenario, he shakes his fist at us as we walk away.");
+                    writeLine("You reluctantly accept, starting your walk towards the house.");
                     //wait()
                     writeLine("Carl opens the front door of Old Man Jenkins' house and you both walk in together.");
                     writeLine("The house appears as though it hasn't been inhabited in decades.");
@@ -53,7 +53,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("You...");
                     writeLine("1. Run towards the scream to help your friend.");
                     writeLine("2. Turn around and walk away. You didn't like Carl that much anyways.");
-                    if (getKey() == ConsoleKey.NumPad1)
+                    if (getKey() == ConsoleKey.D1)
                     {
                         clear();
                         writeLine("You rush down to the end of the hallway and hurredly pull open a large wooden door.");
@@ -65,8 +65,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("The monster sinks it's teeth into you and tears your flesh from your body.");
                         writeLine("Your vision fades. You have died.");
                         writeLine("GAME OVER");
+                        wait(30);
                     }
-                    else if (getKey() == ConsoleKey.NumPad2)
+                    else
                     {
                         clear();
                         writeLine("You start down the stairs, but you hear heavy footsteps coming quickly down the hallway.");
@@ -77,9 +78,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("Carl plunges his knife deep into your chest without warning.");
                         writeLine("Your vision fades. You have died.");
                         writeLine("GAME OVER");
+                        wait(30);
                     }
                 }
-                else if (getKey() == ConsoleKey.NumPad2)
+                else
                 {
                     clear();
                     writeLine("Carl - Let's go find out!");
@@ -93,7 +95,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeLine("You say...");
                     writeLine("1. I don't know, that's actually kinda creepy.");
                     writeLine("2. There's probably some cool old antique stuff down there!");
-                    if (getKey() == ConsoleKey.NumPad1)
+                    if (getKey() == ConsoleKey.D1)
                     {
                         clear();
                         writeLine("You - I think I'd rather just go home for tonight.");
@@ -107,8 +109,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("You walk back home after school past Old Man Jenkins' house and it feels like the windows of the house are watching you.");
                         writeLine("Congratulations, you have survived.");
                         writeLine("GAME OVER");
+                        wait(30);
                     }
-                    else if (getKey() == ConsoleKey.NumPad2)
+                    else
                     {
                         clear();
                         writeLine("You both descend to the basement.");
@@ -132,6 +135,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         writeLine("Befor eyou get a chance to react, you feel your neck snap.");
                         writeLine("You have died.");
                         writeLine("GAME OVER");
+                        wait(45);
                     }
                 }
             }
