@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextCarnival_2._0</RootNamespace>
     <AssemblyName>TextCarnival 2.0</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,7 @@
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\2048.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\ThanosIdleGame.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\Cryptography.cs" />
+    <Compile Include="Source\CarnivalGames\AllCarnivalGames\Hunter.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\MadLibs.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\SantosGame.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\ExampleGame.cs" />
