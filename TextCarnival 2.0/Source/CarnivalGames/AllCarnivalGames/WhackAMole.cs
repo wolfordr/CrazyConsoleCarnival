@@ -100,9 +100,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public void drawBoard()
         {
             if (winner) { return; }
-            while (true)
+            while (winner == false)
             {
-                if (winner) { writeOut("Sending you back to the carnival..."); wait(2); return; }
                 blankBoard();
                 wait(rand.Next(1, 3));
                 clear();
@@ -126,7 +125,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     winner = true;
                     writeOut("You win!"); wait(1);
-                    return;
+                    writeOut("Sending you back to the carnival...");
+                    wait(2);
+                    break;
                 }
                 clearHoles();
                 getMole();
