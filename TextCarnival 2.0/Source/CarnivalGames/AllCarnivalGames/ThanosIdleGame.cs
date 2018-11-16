@@ -37,8 +37,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeLine("So basically... im monky");
             wait(1);
             clear();
-            writeLine("You are the Mad Titan Thanos so click spacebar to raid a world and collect some(or one for now) thanos coins");
+            writeLine("You are the Mad Titan Thanos so click spacebar at any time\neven in other menus to raid a world and collect some thanos coins");
             writeLine("When you are ready my lord access the shop via the X key on your magic keyboard thingy to buy better minions or even \nsome magic stones O-O");
+            writeLine("Click Q at any time to exit the game");
+            
             int x = 0;
             if (x == 0)
             {
@@ -52,9 +54,9 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
             for (x = 0; x < time; x = x + 1)
             {
-                ConsoleKeyInfo input = Console.ReadKey();
+                ConsoleKey inputmain = getKey();
                 
-                if (input.KeyChar == ' ')
+                if (inputmain == ConsoleKey.Spacebar)
                 {
                     clear();
                     earned = (thanoscoins * -1);
@@ -69,10 +71,20 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     else
                     writeLine("Stats:\nMinion Bonus: " + minions + "\nFleet Ships: " + fleet + "\nInfinity Stone Multiplier: " + infinitystonemult);
                 }
-                if (input.KeyChar == 'x')
+                if (inputmain == ConsoleKey.X)
                 {
                     clear();
                     Shop();
+                }
+                if(inputmain == ConsoleKey.Q)
+                {
+                    clear();
+                    writeLine("Do you wish to exit the game? Y/N");
+                    bool exit = getYesNo();
+                    if(exit)
+                    {
+                        break;
+                    } 
                 }
 
                 time = time + 1;
@@ -164,8 +176,10 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                             bool answer = getYesNo();
                             if (answer)
                             {
+                                thots = thots - 1;
                                 writeLine("The number of thots on this planet: " + thots);
                                 wait(3);
+                                infinitystonemult = infinitystonemult + 1;
                                 writeLine("Soul Stone obtained");
                                 upgrade[3] = true;
                             }
