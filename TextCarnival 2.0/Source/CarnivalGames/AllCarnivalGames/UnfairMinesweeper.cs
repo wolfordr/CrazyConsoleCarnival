@@ -137,10 +137,15 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
                 iny = Int32.Parse(input.Substring(0, 1));
                 inx = Int32.Parse(input.Substring(2, 1));
+
+
                 if (minecheck(iny,inx,minefield).Equals(" "))
                 {
                     zeros(y, x);
                 }
+
+
+
                 if (input.Length > 3 && input.Substring(4, 1).Equals("m"))
                 {
                     playfield[iny, inx] = "f";
@@ -153,8 +158,12 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 }
 
 
-                zeros(iny, inx);
+                 zeros(iny, inx);
+
                  boardPrint(playfield, showfield);
+
+
+
 
                 if (minefield[iny, inx] && !(playfield[iny, inx].Equals("f"))) // fail ending
                 {
@@ -162,6 +171,12 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
                     wait(2);
                 }
+ 
+
+
+
+
+
 
                 if (wincheck(playfield, minefield)) // win ending
                 {
