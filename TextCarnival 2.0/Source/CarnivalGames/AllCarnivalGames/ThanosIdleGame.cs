@@ -165,7 +165,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     if (!upgrade[3])
                     {
-                        if (thanoscoins >= 150000)
+                        if (thanoscoins >= 0)
                         {
                             clear();
                             writeLine("You actually cannot buy this one my lord...");
@@ -340,6 +340,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         if (thanoscoins >= 3000)
                         {
                             clear();
+                            thanoscoins = thanoscoins - 3000;
                             fleet = fleet + 1;
                             writeLine("Thanos Car Wins Piston Cup\nThanos Car Wins Piston Cup");
                             upgrade[10] = true;
@@ -359,6 +360,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         if (thanoscoins >= 6000)
                         {
                             clear();
+                            thanoscoins = thanoscoins - 6000;
                             fleet = fleet + 2;
                             writeLine("\"We are now in a flying donut, billions of miles from Earth.\"");
                             upgrade[11] = true;
@@ -378,6 +380,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         if (thanoscoins >= 10000)
                         {
                             clear();
+                            thanoscoins = thanoscoins - 10000;
                             fleet = fleet + 3;
                             writeLine("Thanos really travelling in a big old H");
                             upgrade[12] = true;
