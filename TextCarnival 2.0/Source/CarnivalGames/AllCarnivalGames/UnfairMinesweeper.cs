@@ -14,6 +14,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         String[,] playfield = new String[10, 10];
         bool flag;
         String input;
+        int iny, inx;
 
 
 
@@ -61,7 +62,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             {
                 for (int k = 0; k < 10; k++)
                 {
-                    if (rng.Next(0, 100) <= 30)
+                    if (rng.Next(0, 100) <= 45)
                     {
                         minefield[i, k] = true;
                         playfield[i, k] = "M";
@@ -74,6 +75,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     showfield[i, k] = false;
                 }
             }
+
+           
 
            
 
@@ -132,20 +135,28 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     break;
                 }
 
+                iny = Int32.Parse(input.Substring(0, 1));
+                inx = Int32.Parse(input.Substring(2, 1));
+                if (minecheck(iny,inx,minefield).Equals(" "))
+                {
+                    zeros(y, x);
+                }
                 if (input.Length > 3 && input.Substring(4, 1).Equals("m"))
                 {
-                    playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = "f";
-                    showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                    playfield[iny, inx] = "f";
+                    showfield[iny, inx] = true;
                 }
                 else
                 {
-                    playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = minecheck(Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1)), minefield);
-                    showfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] = true;
+                    playfield[iny, inx] = minecheck(iny, inx, minefield);
+                    showfield[iny, inx] = true;
                 }
 
-                boardPrint(playfield, showfield);
 
-                if (minefield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))] && !(playfield[Int32.Parse(input.Substring(0, 1)), Int32.Parse(input.Substring(2, 1))].Equals("f"))) // fail ending
+                zeros(iny, inx);
+                 boardPrint(playfield, showfield);
+
+                if (minefield[iny, inx] && !(playfield[iny, inx].Equals("f"))) // fail ending
                 {
                     flag = false;
                     writeOut("Welp you hit a at [" + input + "], I am really not surprised! :D");
@@ -198,6 +209,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
             if (counter == 0)
             {
+                
                 return " ";
             }
             return "" + counter;
@@ -255,39 +267,31 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             return true;
         }
 
-        /*
-            string starter = ReadLine();
-            int y = starter.Substring(2,1);
-            int x = starter.Substring(0,1);
-            int sy = y - 1, ey = y + 2, sx = x - 2, ex = x + 2;
+        private void zeros(int y, int x)
+        {
 
-            if (y == 0) {sy = 0;}
-            if (y>=8) {ey = 9;}
-            if (x <= 0) {sx = 0;}
-            if (x >= 8) {ex = 9;}
+            if (x < 0 || x > 9 || y < 0 || y > 9)
+                return;
 
-            for (int i = sy; i <= ey; i++)
+             if (showfield[y, x]) { return; }
+
+            if (!showfield[y, x] && !minecheck(y, x, minefield).Equals(" "))
             {
-                for (int k = sx; <= ex; k++)
-                {
-                    if (minefield[i,k])
-                    {
-                        minefield[i,k] = false;
-                        
-                    }   
-                }
+                showfield[y, x] = true;
+                return;
             }
-            for (int i = sy; i <= ey; i++)
+            else
             {
-                for (int k = sx; <= ex; k++)
-                {
-                    
-                    
-                        playfield[i,k] = minecheck[i,k];
-                        
-                       
-                }
+                showfield[y, x] = true;
+                zeros(y, x + 1);
+                zeros(y, x - 1);
+                zeros(y + 1, x);
+                zeros(y - 1, x);
+                return;
+
             }
-         */
+        } 
+
+       
     }
 }
