@@ -10,7 +10,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
     {
         public override string getName()
         {
-            return "Blackjack";
+            return "21";
         }
         public override void play()
         {
@@ -34,8 +34,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 int[] hand = new int[3]; 
                 Random r = new Random(); //random object to be reused
 
-                hand[0] = r.Next(1, 14);
-                hand[1] = r.Next(1, 14); //first two cards
                 hand[2] = 0; //third card if they choose to draw a card later on
                 
                 int c1 = r.Next(3, 14);
@@ -45,8 +43,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     if (first == true)
                     {
+                        hand[0] = r.Next(1, 14);
+                        hand[1] = r.Next(1, 14); //first two cards
                         writeLine("Your cards are: " + hand[0] + ", " + hand[1]); //prints first two cards
                         first = false; //ends first turn
+
                     }
                     writeLine("Would you like to draw another card?"); //asks if they want to draw
                     draw = getYesNo(); //records the answer
