@@ -49,6 +49,7 @@
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\2048.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\ThanosIdleGame.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\Cryptography.cs" />
+    <Compile Include="Source\CarnivalGames\AllCarnivalGames\UnfairMineSweeper.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\Hunter.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\MadLibs.cs" />
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\SantosGame.cs" />
