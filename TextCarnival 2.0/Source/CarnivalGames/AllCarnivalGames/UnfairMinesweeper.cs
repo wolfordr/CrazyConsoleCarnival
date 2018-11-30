@@ -85,8 +85,19 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
             writeOut("enter a place to start exp 6,7");
 
+           
 
             string starter = getInput();
+
+            if (starter.Equals("Q")) { return; }
+
+            if (starter.Length > 3 || starter.Length <= 2) // if error then loss :D
+            {
+                writeLine("INVALID INPUT! Try again :D");
+                wait(2);
+                return;
+            }
+
             int y = Int32.Parse(starter.Substring(2, 1));
             int x = Int32.Parse(starter.Substring(0, 1));
             int sy = y - 1, ey = y + 2, sx = x - 2, ex = x + 2;
